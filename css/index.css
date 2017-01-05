@@ -1,0 +1,8 @@
+.area-inicial {
+  margin: 5px;
+  overflow: auto;
+}
+
+.area-inicial__btn {
+  height: 50px;
+}

@@ -8,12 +8,3 @@
 .middle-text {
   text-align: center;
 }
-
-.area-inicial {
-  margin: 5px;
-  overflow: auto;
-}
-
-.area-inicial__btn {
-  height: 50px;
-}

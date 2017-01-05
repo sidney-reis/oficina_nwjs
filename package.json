@@ -1,0 +1,17 @@
+{
+  "name": "Oficina do Regis",
+  "main": "./html/index.html",
+  "window": {
+    "title": "Oficina do Regis",
+    "icon": "link.png",
+    "toolbar": true,
+    "frame": true,
+    "width": 800,
+    "height": 500,
+    "position": "center",
+    "min_width": 400,
+    "min_height": 200,
+    "max_width": 800,
+    "max_height": 600
+  }
+}

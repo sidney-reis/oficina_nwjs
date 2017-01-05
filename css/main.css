@@ -1,0 +1,19 @@
+.oi {color: red;}
+
+.bottom5  { margin-bottom: 5px;  }
+.bottom10 { margin-bottom: 10px; }
+.bottom20 { margin-bottom: 20px; }
+.bottom30 { margin-bottom: 30px; }
+
+.middle-text {
+  text-align: center;
+}
+
+.area-inicial {
+  margin: 5px;
+  overflow: auto;
+}
+
+.area-inicial__btn {
+  height: 50px;
+}

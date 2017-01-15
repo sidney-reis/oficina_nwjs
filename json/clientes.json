@@ -1,0 +1,7 @@
+{
+  "clientes": [
+    {"placaDoCarro": "12345", "nomeDoCliente": "joao da silva", "modeloDoCarro": "mustangueras", "dataUltimoServico": "17/01/1995", "serviçoExecutado": "calibragem dos pneus", "servicos": ["servico1", "servico2", "servico3"]},
+    {"placaDoCarro": "67890", "nomeDoCliente": "silva da joão", "modeloDoCarro": "aaaaa", "dataUltimoServico": "09/09/1999", "serviçoExecutado": "calibragem dos suenp", "servicos": ["servicoA", "servicoB", "servicoC"]}
+  ],
+  "currentCliente": 0
+}

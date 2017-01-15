@@ -1,5 +1,5 @@
 {
-  "name": "Oficina do Regis",
+  "name": "Oficina",
   "main": "./html/index.html",
   "window": {
     "title": "Oficina do Regis",
@@ -8,7 +8,7 @@
     "frame": true,
     "width": 800,
     "height": 500,
-    "position": "center",
+    "position": "mouse",
     "min_width": 400,
     "min_height": 200,
     "max_width": 800,

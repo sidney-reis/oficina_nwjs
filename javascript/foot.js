@@ -1,1 +1,1 @@
-document.write('<script src="../bootstrap/js/bootstrap.min.js"></script>    <script src="../javascript/main.js"></script>    <link rel="stylesheet" type="text/css" href="../css/main.css"></link>');
+document.write('<script src="../bootstrap/js/bootstrap.min.js"></script>    <script src="../javascript/main.js"></script>    ');

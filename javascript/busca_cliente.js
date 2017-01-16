@@ -10,7 +10,7 @@ $( "#buscaClientesForm" ).submit(function( event ) {
 
   for(var i = 0; i < clientesJSON.clientes.length; i++) {
     clienteAtual = clientesJSON.clientes[i];
-    if(clienteAtual.placaDoCarro.includes($("#buscaClienteField").val()) || clienteAtual.nomeDoCliente.includes($("#buscaClienteField").val()) || clienteAtual.modeloDoCarro.includes($("#buscaClienteField").val())) { //placa do carro, nome do cliente ou modelo do carro
+    if(clienteAtual.placaDoCarro.toUpperCase().includes($("#buscaClienteField").val().toUpperCase()) || clienteAtual.nomeDoCliente.toUpperCase().includes($("#buscaClienteField").val().toUpperCase()) || clienteAtual.modeloDoCarro.toUpperCase().includes($("#buscaClienteField").val().toUpperCase())) { //placa do carro, nome do cliente ou modelo do carro
       var row = table.insertRow(-1);
 
       var cell1 = row.insertCell(0);
@@ -30,7 +30,6 @@ $( "#buscaClientesForm" ).submit(function( event ) {
         var cell = row.getElementsByTagName("td")[0];
         var id = cell.innerHTML;
         localStorage.setItem("selectedClienteIndex", eba);
-        console.log(i);
         window.location = "cliente.html";
       };
     }

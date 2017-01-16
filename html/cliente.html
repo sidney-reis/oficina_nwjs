@@ -9,10 +9,48 @@
 <body class="border30">
   <div class="row">
     <div class="bottom20 col-xs-6">
-      <button id="back-cliente">Voltar</button>
+      <button id="back-cliente" class="button-disable">Voltar</button>
       <h1 id="headerCliente"></h1>
-      <p>todos os outros dados</p>
+      <button id="edit-cliente-btn" class="ps">Alterar Informações</button>
+      <button hidden id="save-edit-btn" class="inputs">Salvar Alterações</button>
+      <button hidden id="cancel-edit-btn" class="inputs">Cancelar Alterações</button>
+      <div>
+        <label class="col-xs-12">Nome do cliente:</label>
+        <p class="col-xs-12 ps" id="nome-cliente-p">Informação não registrada.</p>
+        <input hidden class="col-xs-12 inputs" id="nome-cliente-input"/>
+      </div>
+      <div>
+        <label class="col-xs-12">Endereço do cliente:</label>
+        <p class="col-xs-12 ps" id="endereco-p">Informação não registrada.</p>
+        <input hidden class="col-xs-12 inputs" id="endereco-input"/>
+      </div>
+      <div>
+        <label class="col-xs-12">Placa do carro:</label>
+        <p class="col-xs-12 ps" id="placa-p">Informação não registrada.</p>
+        <input hidden class="col-xs-12 inputs" id="placa-input"/>
+      </div>
+      <div>
+        <label class="col-xs-12">Modelo do carro:</label>
+        <p class="col-xs-12 ps" id="modelo-p">Informação não registrada.</p>
+        <input hidden class="col-xs-12 inputs" id="modelo-input"/>
+      </div>
+      <div>
+        <label class="col-xs-12">Quilometragem do veículo:</label>
+        <p class="col-xs-12 ps" id="quilometragem-p">Informação não registrada.</p>
+        <input hidden class="col-xs-12 inputs" id="quilometragem-input"/>
+      </div>
+      <div>
+        <label class="col-xs-12">Ano do carro:</label>
+        <p class="col-xs-12 ps" id="ano-carro-p">Informação não registrada.</p>
+        <input hidden class="col-xs-12 inputs" id="ano-carro-input"/>
+      </div>
+      <div>
+        <label class="col-xs-12">Observações:</label>
+        <p class="col-xs-12 ps" id="observacoes-p">Informação não registrada.</p>
+        <input hidden class="col-xs-12 inputs" id="observacoes-input"/>
+      </div>
       <h3>Serviços prestados:</h3>
+      <button id="add-servico" class="button-disable">Adicionar Serviço</button>
       <p>lista de serviços</p>
     </div>
   </div>

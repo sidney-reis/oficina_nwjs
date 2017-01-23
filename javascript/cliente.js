@@ -67,3 +67,70 @@ $("#save-edit-btn").click(function(){
   $("#ano-carro-p").text(cliente.anoDoCarro);
   $("#observacoes-p").text(cliente.observacoes);
 });
+
+$('#add-servico').click(function() {
+  window.location = "novo_servico.html";
+});
+
+for(var i = 0; i < cliente.servicos.length; i++) {
+  if(cliente.servicos[i].pagamento1=='dinheiro' || cliente.servicos[i].pagamento1=='debito') {
+    $("#lista-servicos").append(
+        '<div class="servico-box">'+
+          '<h4>'+ cliente.servicos[i].data +'</h4>'+
+          '<label>Serviço executado:</label>'+
+          '<p>'+ cliente.servicos[i].servicoExecutado +'</p>'+
+          '<label>Observações:</label>'+
+          '<p>'+ cliente.servicos[i].observacoes +'</p>'+
+          '<label>Preço:</label>'+
+          '<p>'+ cliente.servicos[i].preco +'</p>'+
+          '<label>Forma de pagamento:</label>'+
+          '<p>'+ cliente.servicos[i].pagamento1 +'</p>'+
+        '</div>'
+      );
+  }
+  else if(cliente.servicos[i].pagamento1=='credito') {
+    $("#lista-servicos").append(
+        '<div class="servico-box">'+
+          '<h4>'+ cliente.servicos[i].data +'</h4>'+
+          '<label>Serviço executado:</label>'+
+          '<p>'+ cliente.servicos[i].servicoExecutado +'</p>'+
+          '<label>Observações:</label>'+
+          '<p>'+ cliente.servicos[i].observacoes +'</p>'+
+          '<label>Preço:</label>'+
+          '<p>'+ cliente.servicos[i].preco +'</p>'+
+          '<label>Forma de pagamento:</label>'+
+          '<p>'+ cliente.servicos[i].pagamento1 +' em '+ cliente.servicos[i].pagamento2 +' vezes'+'</p>'+
+        '</div>'
+      );
+  }
+  else if(cliente.servicos[i].pagamento1=='deposito') {
+    $("#lista-servicos").append(
+        '<div class="servico-box">'+
+          '<h4>'+ cliente.servicos[i].data +'</h4>'+
+          '<label>Serviço executado:</label>'+
+          '<p>'+ cliente.servicos[i].servicoExecutado +'</p>'+
+          '<label>Observações:</label>'+
+          '<p>'+ cliente.servicos[i].observacoes +'</p>'+
+          '<label>Preço:</label>'+
+          '<p>'+ cliente.servicos[i].preco +'</p>'+
+          '<label>Forma de pagamento:</label>'+
+          '<p>'+ cliente.servicos[i].pagamento1 +' na conta '+ cliente.servicos[i].pagamento2 +'</p>'+
+        '</div>'
+      );
+  }
+  else if(cliente.servicos[i].pagamento1=='outro') {
+    $("#lista-servicos").append(
+        '<div class="servico-box">'+
+          '<h4>'+ cliente.servicos[i].data +'</h4>'+
+          '<label>Serviço executado:</label>'+
+          '<p>'+ cliente.servicos[i].servicoExecutado +'</p>'+
+          '<label>Observações:</label>'+
+          '<p>'+ cliente.servicos[i].observacoes +'</p>'+
+          '<label>Preço:</label>'+
+          '<p>'+ cliente.servicos[i].preco +'</p>'+
+          '<label>Forma de pagamento:</label>'+
+          '<p>'+ cliente.servicos[i].pagamento2 +'</p>'+
+        '</div>'
+      );
+  }
+}

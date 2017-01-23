@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<!-- serviço, comentário, forma de pagamento, pagamento2, data do serviço -->
+<head>
+  <script src="../javascript/head.js"></script>
+  <script src="../javascript/jquery.maskedinput.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/novo_servico.css"></link>
+</head>
+
+<body class="border30">
+  <div class="row">
+    <div class="bottom20 col-xs-9">
+      <button id="back-cliente">Voltar</button>
+      <h1>Novo Serviço</h1>
+      <form id="novo-servico-form">
+        <div>
+          <label class="col-xs-12">Serviço executado:</label>
+          <input class="col-xs-12" id="servico-input"/>
+        </div>
+        <div>
+          <label class="col-xs-12">Data do serviço:</label>
+          <input class="col-xs-12" id="data-input"/>
+        </div>
+        <div>
+          <label class="col-xs-12">Observações:</label>
+          <input class="col-xs-12" id="observacoes-input"/>
+        </div>
+        <div>
+          <label class="col-xs-12">Preço:</label>
+          <input class="col-xs-12" id="preco-input"/>
+        </div>
+        <div>
+          <label class="col-xs-12">Forma de pagamento:</label>
+          <input type="radio" name="forma-pagamento" value="dinheiro"> Dinheiro
+          <input type="radio" name="forma-pagamento" value="credito"> Crédito
+          <input type="radio" name="forma-pagamento" value="debito"> Débito
+          <input type="radio" name="forma-pagamento" value="deposito"> Depósito
+          <input type="radio" name="forma-pagamento" value="outro"> Outro
+        </div>
+        <div>
+          <label class="col-xs-12" id="pagamento2-texto"></label>
+          <input class="col-xs-12" id="pagamento2-input" hidden/>
+        </div>
+        <button id="submit-servico" type="submit">Adicionar</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+<foot>
+  <script src="../javascript/foot.js"></script>
+  <script src="../javascript/novo_servico.js"></script>
+</foot>
+
+</html>

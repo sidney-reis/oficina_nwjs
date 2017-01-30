@@ -21,7 +21,7 @@
 
   <div class="row">
     <h4 class="col-xs-12">Busca de clientes:</h4>
-    <form id="buscaClientesForm">
+    <form id="buscaClientesForm" autocomplete="off">
       <input id="buscaClienteField" type="text" name="busca" class="col-xs-9 ellip border15" placeholder="placa do carro, nome do cliente ou modelo do carro"/>
       <input class="col-xs-2" type="submit" disabled="disabled" value="Buscar"/>
     </form>
@@ -35,6 +35,7 @@
         <th>Serviço executado</th>
       </tr>
     </table>
+    <p id="nenhum-cliente" hidden>Nenhum cliente encontrado.</p>
   </div>
 </body>
 

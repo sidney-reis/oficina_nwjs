@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="../javascript/head.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/item.css"></link>
+</head>
+
+<body class="border30">
+  <div class="row">
+    <div class="bottom20 col-xs-6">
+      <button id="back-item" class="button-disable">Voltar</button>
+      <h1 id="headerItem"></h1>
+      <button id="edit-item-btn" class="ps button-1">Alterar Informações</button>
+      <button id="remove-item-btn" class="ps button-1">Remover Item</button>
+      <p hidden class="remove-confirmation">Você tem certeza que deseja remover este item?<br/>Isso não poderá ser desfeito.</p>
+      <button hidden class="remove-confirmation" id="confirm-remove">Confirmar</button>
+      <button hidden class="remove-confirmation" id="cancel-remove">Cancelar</button>
+      <button hidden id="save-edit-btn" class="inputs">Salvar Alterações</button>
+      <button hidden id="cancel-edit-btn" class="inputs">Cancelar Alterações</button>
+      <div>
+        <label class="col-xs-12">Nome do item:</label>
+        <p class="col-xs-12 ps" id="nome-p"></p>
+        <input hidden class="col-xs-12 inputs" id="nome-input"/>
+      </div>
+      <div>
+        <label class="col-xs-12">Quantidade em estoque:</label>
+        <p class="col-xs-12 ps" id="quantidade-p"></p>
+        <input hidden class="col-xs-12 inputs" id="quantidade-input"/>
+      </div>
+      <div>
+        <label class="col-xs-12">Preço atual:</label>
+        <p class="col-xs-12 ps" id="preco-p"></p>
+        <input hidden class="col-xs-12 inputs" id="preco-input"/>
+      </div>
+    </div>
+  </div>
+</body>
+
+<foot>
+  <script src="../javascript/foot.js"></script>
+  <script src="../javascript/item.js"></script>
+</foot>
+
+</html>

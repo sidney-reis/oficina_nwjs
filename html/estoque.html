@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="../javascript/head.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/estoque.css"></link>
+</head>
+
+<body class="border30">
+
+  <div class="row">
+    <div class="bottom20 col-xs-6">
+      <button id="back-estoque">Voltar</button>
+      <h1>Estoque</h1>
+    </div>
+
+    <div class="bottom20 col-xs-6">
+      <button id="addItens" class="pull-right bottom20 top20">Adicionar item</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4 class="col-xs-12">Busca de itens:</h4>
+    <form id="buscaItensForm" autocomplete="off">
+      <input id="buscaItensField" type="text" name="busca" class="col-xs-9 ellip border15" placeholder="nome do item"/>
+      <input class="col-xs-2" type="submit" disabled="disabled" value="Buscar"/>
+    </form>
+
+    <table hidden="true" border="1" id="tabelaResultadosItens" class="col-xs-12">
+      <tr>
+        <th>Nome do item</th>
+        <th>Quantidade em estoque</th>
+        <th>Preço atual</th>
+      </tr>
+    </table>
+    <p id="nenhum-item" hidden>Nenhum item encontrado.</p>
+  </div>
+</body>
+
+<foot>
+  <script src="../javascript/foot.js"></script>
+  <script src="../javascript/estoque.js"></script>
+</foot>
+
+</html>

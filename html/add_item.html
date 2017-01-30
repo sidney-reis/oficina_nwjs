@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="../javascript/head.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/add_item.css"></link>
+</head>
+
+<body class="border30">
+  <div class="row">
+    <div class="bottom20 col-xs-9">
+      <button id="back-item">Voltar</button>
+      <h1>Novo Item do Estoque</h1>
+      <p class="error" hidden></p>
+      <form id="novo-item-form" autocomplete="off">
+        <div>
+          <label class="col-xs-12">Nome do item:</label>
+          <input class="col-xs-12" id="nome-input"/>
+        </div>
+        <div>
+          <label class="col-xs-12">Quantidade em estoque:</label>
+          <input class="col-xs-12" id="quantidade-input"/>
+        </div>
+        <div>
+          <label class="col-xs-12">Preço atual:</label>
+          <input class="col-xs-12" id="preco-input"/>
+        </div>
+        <button id="submit-novo-item" type="submit">Adicionar</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+<foot>
+  <script src="../javascript/foot.js"></script>
+  <script src="../javascript/add_item.js"></script>
+</foot>
+
+</html>

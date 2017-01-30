@@ -28,6 +28,10 @@
 //   );
 // // });
 
-$(".area-inicial__btn").click(function() {
+$(".cliente-btn").click(function() {
   window.location = "busca_cliente.html";
+});
+
+$(".estoque-btn").click(function() {
+  window.location = "estoque.html";
 });

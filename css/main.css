@@ -20,6 +20,8 @@
 
 .pc90 { width: 90%; }
 
+.error { color: red; }
+
 .ellip {
   white-space: nowrap;
   overflow: hidden;
@@ -42,14 +44,20 @@ button[disabled]:hover {
   cursor: not-allowed;
 }
 
+td {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+tr:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
 th {
   padding-left: 5px;
   padding-right: 5px;
   background-color: #A8A8A8;
   color: white;
-}
-
-td {
-  padding-left: 5px;
-  padding-right: 5px;
+  cursor: auto;
 }

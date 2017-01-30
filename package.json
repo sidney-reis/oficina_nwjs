@@ -2,7 +2,7 @@
   "name": "Oficina",
   "main": "./html/index.html",
   "window": {
-    "title": "Oficina do Regis",
+    "title": "Oficina",
     "icon": "link.png",
     "toolbar": true,
     "frame": true,

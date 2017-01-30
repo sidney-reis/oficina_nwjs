@@ -28,23 +28,31 @@ $("input[name=forma-pagamento]").click(function() {
 });
 
 $("#novo-servico-form").submit(function() {
-  var fs = require('fs');
-  var clientesJSON = JSON.parse(fs.readFileSync('./json/clientes.json', 'utf8'));
+  if($("#servico-input").val().trim() == '') {
+    $(".error").text("Não foi possível adicionar serviço. O campo de serviço executado deve ser preenchido.");
+    $(".error").show();
+  }
 
-  clientesJSON.clientes[localStorage.getItem("selectedClienteIndex")].servicos.push({
-    "servicoExecutado": $("#servico-input").val(),
-    "data": $("#data-input").val(),
-    "observacoes": $("#observacoes-input").val(),
-    "preco": $("#preco-input").val(),
-    "pagamento1": $('input[name=forma-pagamento]:checked', '#novo-servico-form').val(),
-    "pagamento2": $("#pagamento2-input").val()
-  });
+  else {
+    var fs = require('fs');
+    var clientesJSON = JSON.parse(fs.readFileSync('./json/clientes.json', 'utf8'));
 
-  fs.writeFileSync("./json/clientes.json", JSON.stringify(clientesJSON), function(err) {
-      if(err) {
-          return console.log(err);
-      }
-  });
-  window.location = 'cliente.html';
+    clientesJSON.clientes[localStorage.getItem("selectedClienteIndex")].servicos.push({
+      "servicoExecutado": $("#servico-input").val(),
+      "data": $("#data-input").val(),
+      "observacoes": $("#observacoes-input").val(),
+      "preco": $("#preco-input").val(),
+      "pagamento1": $('input[name=forma-pagamento]:checked', '#novo-servico-form').val(),
+      "pagamento2": $("#pagamento2-input").val()
+    });
+
+    fs.writeFileSync("./json/clientes.json", JSON.stringify(clientesJSON), function(err) {
+        if(err) {
+            return console.log(err);
+        }
+    });
+    window.location = 'cliente.html';
+  }
+
   return false;
 });

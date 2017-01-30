@@ -3,13 +3,13 @@ var cliente = JSON.parse(fs.readFileSync('./json/clientes.json', 'utf8')).client
 
 $("#headerCliente").text(cliente.nomeDoCliente);
 
-$("#nome-cliente-p").text(cliente.nomeDoCliente);
-$("#endereco-p").text(cliente.enderecoDoCliente);
-$("#placa-p").text(cliente.placaDoCarro);
-$("#modelo-p").text(cliente.modeloDoCarro);
-$("#quilometragem-p").text(cliente.quilometragemDoCarro);
-$("#ano-carro-p").text(cliente.anoDoCarro);
-$("#observacoes-p").text(cliente.observacoes);
+$("#nome-cliente-p").text(cliente.nomeDoCliente ? cliente.nomeDoCliente : "Informação não registrada.");
+$("#endereco-p").text(cliente.enderecoDoCliente ? cliente.enderecoDoCliente : "Informação não registrada.");
+$("#placa-p").text(cliente.placaDoCarro ? cliente.placaDoCarro : "Informação não registrada.");
+$("#modelo-p").text(cliente.modeloDoCarro ? cliente.modeloDoCarro : "Informação não registrada.");
+$("#quilometragem-p").text(cliente.quilometragemDoCarro ? cliente.quilometragemDoCarro : "Informação não registrada.");
+$("#ano-carro-p").text(cliente.anoDoCarro ? cliente.anoDoCarro : "Informação não registrada.");
+$("#observacoes-p").text(cliente.observacoes ? cliente.observacoes : "Informação não registrada.");
 $("#nome-cliente-input").val(cliente.nomeDoCliente);
 $("#endereco-input").val(cliente.enderecoDoCliente);
 $("#placa-input").val(cliente.placaDoCarro);
@@ -59,13 +59,14 @@ $("#save-edit-btn").click(function(){
       }
   });
   cliente = JSON.parse(fs.readFileSync('./json/clientes.json', 'utf8')).clientes.slice(-1)[0];
-  $("#nome-cliente-p").text(cliente.nomeDoCliente);
-  $("#endereco-p").text(cliente.enderecoDoCliente);
-  $("#placa-p").text(cliente.placaDoCarro);
-  $("#modelo-p").text(cliente.modeloDoCarro);
-  $("#quilometragem-p").text(cliente.quilometragemDoCarro);
-  $("#ano-carro-p").text(cliente.anoDoCarro);
-  $("#observacoes-p").text(cliente.observacoes);
+  $("#headerCliente").text(cliente.nomeDoCliente);
+  $("#nome-cliente-p").text(cliente.nomeDoCliente ? cliente.nomeDoCliente : "Informação não registrada.");
+  $("#endereco-p").text(cliente.enderecoDoCliente ? cliente.enderecoDoCliente : "Informação não registrada.");
+  $("#placa-p").text(cliente.placaDoCarro ? cliente.placaDoCarro : "Informação não registrada.");
+  $("#modelo-p").text(cliente.modeloDoCarro ? cliente.modeloDoCarro : "Informação não registrada.");
+  $("#quilometragem-p").text(cliente.quilometragemDoCarro ? cliente.quilometragemDoCarro : "Informação não registrada.");
+  $("#ano-carro-p").text(cliente.anoDoCarro ? cliente.anoDoCarro : "Informação não registrada.");
+  $("#observacoes-p").text(cliente.observacoes ? cliente.observacoes : "Informação não registrada.");
 });
 
 $('#add-servico').click(function() {

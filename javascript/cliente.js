@@ -40,7 +40,6 @@ $("#save-edit-btn").click(function(){
   $(".button-disable").removeAttr("disabled");
 
   var clientesJSON = JSON.parse(fs.readFileSync('./json/clientes.json', 'utf8'));
-  clientesJSON.clientes.splice(localStorage.getItem("selectedClienteIndex"), 1);
   clientesJSON.clientes.push({
     "nomeDoCliente": $("#nome-cliente-input").val(),
     "enderecoDoCliente": $("#endereco-input").val(),
@@ -49,10 +48,9 @@ $("#save-edit-btn").click(function(){
     "quilometragemDoCarro": $("#quilometragem-input").val(),
     "anoDoCarro": $("#ano-carro-input").val(),
     "observacoes": $("#observacoes-input").val(),
-    "dataUltimoServico": "",
-    "serviçoExecutado": "",
-    "servicos": []
+    "servicos": clientesJSON.clientes[localStorage.getItem("selectedClienteIndex")].servicos
   });
+  clientesJSON.clientes.splice(localStorage.getItem("selectedClienteIndex"), 1);
   fs.writeFileSync("./json/clientes.json", JSON.stringify(clientesJSON), function(err) {
       if(err) {
           return console.log(err);
@@ -74,64 +72,68 @@ $('#add-servico').click(function() {
 });
 
 for(var i = 0; i < cliente.servicos.length; i++) {
+  var stringaoHTML =
+    '<div class="servico-box">'+
+      '<h4>'+ cliente.servicos[i].data +'</h4>'+
+      '<label>Serviço executado:</label>'+
+      '<p>'+ cliente.servicos[i].servicoExecutado +'</p>'+
+      '<label>Observações:</label>'+
+      '<p>'+ cliente.servicos[i].observacoes +'</p>'+
+      '<label>Custo para a oficina:</label>'+
+      '<p>'+ cliente.servicos[i].custo +'</p>'+
+      '<label>Preço pago pelo cliente:</label>'+
+      '<p>'+ cliente.servicos[i].preco +'</p>'+
+      '<label>Forma de pagamento:</label>'
+  ;
   if(cliente.servicos[i].pagamento1=='dinheiro' || cliente.servicos[i].pagamento1=='debito') {
-    $("#lista-servicos").append(
-        '<div class="servico-box">'+
-          '<h4>'+ cliente.servicos[i].data +'</h4>'+
-          '<label>Serviço executado:</label>'+
-          '<p>'+ cliente.servicos[i].servicoExecutado +'</p>'+
-          '<label>Observações:</label>'+
-          '<p>'+ cliente.servicos[i].observacoes +'</p>'+
-          '<label>Preço:</label>'+
-          '<p>'+ cliente.servicos[i].preco +'</p>'+
-          '<label>Forma de pagamento:</label>'+
-          '<p>'+ cliente.servicos[i].pagamento1 +'</p>'+
-        '</div>'
-      );
+    stringaoHTML += '<p>'+ cliente.servicos[i].pagamento1 +'</p>';
   }
   else if(cliente.servicos[i].pagamento1=='credito') {
-    $("#lista-servicos").append(
-        '<div class="servico-box">'+
-          '<h4>'+ cliente.servicos[i].data +'</h4>'+
-          '<label>Serviço executado:</label>'+
-          '<p>'+ cliente.servicos[i].servicoExecutado +'</p>'+
-          '<label>Observações:</label>'+
-          '<p>'+ cliente.servicos[i].observacoes +'</p>'+
-          '<label>Preço:</label>'+
-          '<p>'+ cliente.servicos[i].preco +'</p>'+
-          '<label>Forma de pagamento:</label>'+
-          '<p>'+ cliente.servicos[i].pagamento1 +' em '+ cliente.servicos[i].pagamento2 +' vezes'+'</p>'+
-        '</div>'
-      );
+    stringaoHTML += '<p>'+ cliente.servicos[i].pagamento1 +' em '+ cliente.servicos[i].pagamento2 +' vezes'+'</p>';
   }
   else if(cliente.servicos[i].pagamento1=='deposito') {
-    $("#lista-servicos").append(
-        '<div class="servico-box">'+
-          '<h4>'+ cliente.servicos[i].data +'</h4>'+
-          '<label>Serviço executado:</label>'+
-          '<p>'+ cliente.servicos[i].servicoExecutado +'</p>'+
-          '<label>Observações:</label>'+
-          '<p>'+ cliente.servicos[i].observacoes +'</p>'+
-          '<label>Preço:</label>'+
-          '<p>'+ cliente.servicos[i].preco +'</p>'+
-          '<label>Forma de pagamento:</label>'+
-          '<p>'+ cliente.servicos[i].pagamento1 +' na conta '+ cliente.servicos[i].pagamento2 +'</p>'+
-        '</div>'
-      );
+    stringaoHTML += '<p>'+ cliente.servicos[i].pagamento1 +' na conta '+ cliente.servicos[i].pagamento2 +'</p>';
   }
   else if(cliente.servicos[i].pagamento1=='outro') {
-    $("#lista-servicos").append(
-        '<div class="servico-box">'+
-          '<h4>'+ cliente.servicos[i].data +'</h4>'+
-          '<label>Serviço executado:</label>'+
-          '<p>'+ cliente.servicos[i].servicoExecutado +'</p>'+
-          '<label>Observações:</label>'+
-          '<p>'+ cliente.servicos[i].observacoes +'</p>'+
-          '<label>Preço:</label>'+
-          '<p>'+ cliente.servicos[i].preco +'</p>'+
-          '<label>Forma de pagamento:</label>'+
-          '<p>'+ cliente.servicos[i].pagamento2 +'</p>'+
-        '</div>'
-      );
+    stringaoHTML += '<p>'+ cliente.servicos[i].pagamento2 +'</p>';
   }
+  stringaoHTML += '<button class="printServico" servicoNumber='+i+'>Imprimir serviço</button></div>'
+  $("#lista-servicos").append(stringaoHTML);
 }
+
+$(".printServico").click(function() {
+  $("#main-container").hide();
+  var servicoPos = $(this).attr("servicoNumber");
+  var html =
+    '<div id="servico-print-box">'+
+      '<img/><h1>Oficina</h1>'+
+      '<h4>'+ cliente.servicos[servicoPos].data +'</h4>'+
+      '<label>Serviço executado:</label>'+
+      '<p>'+ cliente.servicos[servicoPos].servicoExecutado +'</p>'+
+      '<label>Observações:</label>'+
+      '<p>'+ cliente.servicos[servicoPos].observacoes +'</p>'+
+      '<label>Custo para a oficina:</label>'+
+      '<p>'+ cliente.servicos[servicoPos].custo +'</p>'+
+      '<label>Preço pago pelo cliente:</label>'+
+      '<p>'+ cliente.servicos[servicoPos].preco +'</p>'+
+      '<label>Forma de pagamento:</label>';
+
+  if(cliente.servicos[servicoPos].pagamento1=='dinheiro' || cliente.servicos[servicoPos].pagamento1=='debito') {
+    html += '<p>'+ cliente.servicos[servicoPos].pagamento1 +'</p></div></body>';
+  }
+  else if(cliente.servicos[servicoPos].pagamento1=='credito') {
+    html += '<p>'+ cliente.servicos[servicoPos].pagamento1 +' em '+ cliente.servicos[servicoPos].pagamento2 +' vezes'+'</p></div></body>';
+  }
+  else if(cliente.servicos[servicoPos].pagamento1=='deposito') {
+    html += '<p>'+ cliente.servicos[servicoPos].pagamento1 +' na conta '+ cliente.servicos[servicoPos].pagamento2 +'</p></div></body>';
+  }
+  else if(cliente.servicos[servicoPos].pagamento1=='outro') {
+    html += '<p>'+ cliente.servicos[servicoPos].pagamento2 +'</p></div></body>';
+  }
+
+  $("#the-body").append(html);
+  window.print();
+  $("#servico-print-box").remove();
+  $("#main-container").show();
+
+});

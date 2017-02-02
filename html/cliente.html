@@ -4,10 +4,27 @@
 <head>
   <script src="../javascript/head.js"></script>
   <link rel="stylesheet" type="text/css" href="../css/cliente.css"></link>
+  <style type="text/css" media="print">
+    @page
+    {
+        size:  auto;   /* auto is the initial value */
+        margin: 0mm;  /* this affects the margin in the printer settings */
+    }
+
+    html
+    {
+        margin: 0px;  /* this affects the margin on the html before sending to printer */
+    }
+
+    body
+    {
+        margin: 10mm 15mm 10mm 15mm; /* margin you want for the content */
+    }
+  </style>
 </head>
 
-<body class="border30">
-  <div class="row">
+<body id="the-body" class="border30">
+  <div id="main-container" class="row">
     <div class="bottom20 col-xs-6">
       <button id="back-cliente" class="button-disable">Voltar</button>
       <h1 id="headerCliente"></h1>

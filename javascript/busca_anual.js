@@ -10,6 +10,16 @@ for(var i = 0; i <Object.keys(mesesJSON.meses).length; i++){
 
 $('#ano-select').change(function() {
   $("#info-mes").hide();
+  $("#anoh3").text("Gastos de "+$('#ano-select').val()+":");
+  var gastoAno = 0;
+  for(var i = 0; i < Object.keys(mesesJSON.meses[$('#ano-select').val()]).length; i++){
+    for(var j = 0; j < mesesJSON.meses[$('#ano-select').val()][Object.keys(mesesJSON.meses[$('#ano-select').val()])[i]].despesas.length; j++){
+      gastoAno += parseFloat(Object.values(mesesJSON.meses[$('#ano-select').val()][Object.keys(mesesJSON.meses[$('#ano-select').val()])[i]].despesas[j])[0]);
+    }
+  }
+  console.log(gastoAno);
+  $("#gastoano").text(gastoAno);
+  $("#info-ano").show();
 
   var myNode =document.getElementById("mes-select");
   while (myNode.firstChild) {
@@ -38,9 +48,13 @@ $('#mes-select').change(function() {
 
     $("#despesas").append('<h4>Despesas</h4>')
     var despesas = mesesJSON.meses[$('#ano-select').val()][$('#mes-select').val()].despesas;
+    var totalDesp = 0;
     for(var i = 0; i < despesas.length;i++){
+      totalDesp += parseFloat(Object.values(despesas[i])[0]);
       $("#despesas").append('<label>'+Object.keys(despesas[i])[0]+'</label><p>'+Object.values(despesas[i])[0]+'</p>');
     }
+
+    $("#despesas").append('<h3>Total em despesas:</h3><p>'+totalDesp+'</p><button id="edit-mes" onclick="editClick()">Modificar mês</button>');
     $("#info-mes").show();
   }
   else{
@@ -48,6 +62,11 @@ $('#mes-select').change(function() {
   }
 });
 
+function editClick(){
+  localStorage.setItem("selectedAno", $('#ano-select').val());
+  localStorage.setItem("selectedMes", $('#mes-select').val());
+  window.location = "edit_mes.html";
+}
 
 $("#addMensal").click(function() {
   window.location = "add_mensal.html";

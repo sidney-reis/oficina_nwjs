@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <script src="../javascript/head.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/edit_mes.css"></link>
+</head>
+
+<body class="border30">
+  <div class="row">
+    <div class="bottom20 col-xs-9">
+      <button id="back-mensal" class="back-btn">Voltar</button>
+      <h1 id="mesh1"></h1>
+      <p class="error" hidden></p>
+      <form id="mes-form">
+        <div>
+          <div class="col-xs-12">
+            <label class="col-xs-12">Total de clientes atendidos:</label>
+            <input class="col-xs-2" id="clientes-input"/>
+            <button id="update-clientes">Atualizar</button>
+          </div>
+          <div class="col-xs-12">
+            <label class="col-xs-12">Total recebido por clientes</label>
+            <input class="col-xs-2 despesa-value" id="recebido-input"/>
+            <button id="update-recebido">Atualizar</button>
+          </div>
+        </div>
+        <div id="despesas">
+          <label class="col-xs-12">Despesas:</label>
+        </div>
+        <button id="add-despesa" class="col-xs-5">Adicionar despesa</button>
+        <button id="remove-despesa" class="col-xs-5">Remover despesa</button>
+        <button id="submit-mes" class="top20" type="submit">Modificar mês</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+<foot>
+  <script src="../javascript/foot.js"></script>
+  <script src="../javascript/edit_mes.js"></script>
+</foot>
+
+</html>

@@ -27,52 +27,91 @@ $("#remove-despesa").click(function(){
 });
 
 $("#mes-form").submit(function(){
-  var fs = require('fs');
-  var mesesJSON = JSON.parse(fs.readFileSync('./json/meses.json', 'utf8'));
+  var nan = false;
+  var virg = false;
+  var pont2 = false;
 
-  var despesas = [];
-  var despesasFields = $("#despesas").find(".despesa");
-
-  for(var j = 0; j < despesasFields.length; j=j+2) {
-    var dKey = despesasFields[j].value;
-    var dVal = despesasFields[j+1].value;
-    var dObj = '{"'+dKey+'": "'+dVal+'"}';
-    despesas.push(JSON.parse(dObj));
-  }
-
-  var objAdd = JSON.stringify({
-    "clientes": $("#clientes-input").val(),
-    "recebido": $("#recebido-input").val(),
-    "despesas": despesas
-  });
-
-  var mesSelecionado = $("#mes-select").val();
-
-
-  for(var i = 0; i < Object.keys(mesesJSON.meses).length; i++) {
-    if(Object.keys(mesesJSON.meses)[i]==$("#ano-select").val()) {
-      console.log(mesSelecionado);
-      $.extend(mesesJSON.meses[Object.keys(mesesJSON.meses)[i]], JSON.parse('{"'+mesSelecionado+'": '+objAdd+'}'));
-      fs.writeFileSync("./json/meses.json", JSON.stringify(mesesJSON), function(err) {
-          if(err) {
-              return console.log(err);
-          }
-      });
-      window.location = 'busca_anual.html';
-      return false;
+  for(var i = 0; i < $(".despesa-value").length; i++){
+    if(isNaN(parseFloat($(".despesa-value")[i].value))){
+      nan = true;
+      break;
+    }
+    else if($(".despesa-value")[i].value.includes(",")){
+      virg = true;
+      break;
+    }
+    else if(($(".despesa-value")[i].value.match(/\./g) || []).length > 1){
+      pont2 = true;
+      break;
     }
   }
 
-  mesesJSON.meses[$("#ano-select").val()] = JSON.parse('{"'+mesSelecionado+'": '+objAdd+'}');
+  if(nan) {
+    $(".error").text("Utilize apenas números e pontos nos campos de valores. Pontos são utilizados para separar reais e centavos.");
+    $(".error").show();
+    return false;
+  }
 
-  fs.writeFileSync("./json/meses.json", JSON.stringify(mesesJSON), function(err) {
-      if(err) {
-          return console.log(err);
+  else if(virg) {
+    $(".error").text("Não utilize vírgulas. Utilize pontos para separar reais e centavos.");
+    $(".error").show();
+    return false;
+  }
+
+  else if(pont2) {
+    $(".error").text("Utilize apenas um ponto separar reais e centavos.");
+    $(".error").show();
+    return false;
+  }
+
+  else{
+    var fs = require('fs');
+    var mesesJSON = JSON.parse(fs.readFileSync('./json/meses.json', 'utf8'));
+
+    var despesas = [];
+    var despesasFields = $("#despesas").find(".despesa");
+
+    for(var j = 0; j < despesasFields.length; j=j+2) {
+      var dKey = despesasFields[j].value;
+      var dVal = despesasFields[j+1].value;
+      var dObj = '{"'+dKey+'": "'+dVal+'"}';
+      despesas.push(JSON.parse(dObj));
+    }
+
+    var objAdd = JSON.stringify({
+      "clientes": $("#clientes-input").val(),
+      "recebido": $("#recebido-input").val(),
+      "despesas": despesas
+    });
+
+    var mesSelecionado = $("#mes-select").val();
+
+
+    for(var i = 0; i < Object.keys(mesesJSON.meses).length; i++) {
+      if(Object.keys(mesesJSON.meses)[i]==$("#ano-select").val()) {
+        console.log(mesSelecionado);
+        $.extend(mesesJSON.meses[Object.keys(mesesJSON.meses)[i]], JSON.parse('{"'+mesSelecionado+'": '+objAdd+'}'));
+        fs.writeFileSync("./json/meses.json", JSON.stringify(mesesJSON), function(err) {
+            if(err) {
+                return console.log(err);
+            }
+        });
+        window.location = 'busca_anual.html';
+        return false;
       }
-  });
-  window.location = 'busca_anual.html';
+    }
 
-  return false;
+    mesesJSON.meses[$("#ano-select").val()] = JSON.parse('{"'+mesSelecionado+'": '+objAdd+'}');
+
+    fs.writeFileSync("./json/meses.json", JSON.stringify(mesesJSON), function(err) {
+        if(err) {
+            return console.log(err);
+        }
+    });
+    window.location = 'busca_anual.html';
+
+    return false;
+  }
 });
 
 

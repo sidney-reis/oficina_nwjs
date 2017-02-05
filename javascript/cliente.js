@@ -106,7 +106,15 @@ $(".printServico").click(function() {
   var servicoPos = $(this).attr("servicoNumber");
   var html =
     '<div id="servico-print-box">'+
-      '<img/><h1>Oficina</h1>'+
+      '<img src="../logo.png" alt="Advance Air Service" style:"width: 304px;height:228px;"/>'+
+      '<h2>Dados do cliente:</h2>'+
+      '<label>Nome:</label><p>'+cliente.nomeDoCliente+'</p>'+
+      '<label>Endereço:</label><p>'+cliente.enderecoDoCliente+'</p>'+
+      '<label>Placa do carro:</label><p>'+cliente.placaDoCarro+'</p>'+
+      '<label>Modelo:</label><p>'+cliente.modeloDoCarro+'</p>'+
+      '<label>Quilometragem:</label><p>'+cliente.quilometragemDoCarro+'</p>'+
+      '<label>Ano do carro:</label><p>'+cliente.anoDoCarro+'</p>'+
+      '<h2>Dados do serviço:</h2>'+
       '<h4>'+ cliente.servicos[servicoPos].data +'</h4>'+
       '<label>Serviço executado:</label>'+
       '<p>'+ cliente.servicos[servicoPos].servicoExecutado +'</p>'+

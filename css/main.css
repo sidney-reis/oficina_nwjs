@@ -27,7 +27,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.col-xs-12 {padding: 0;}
 input[disabled] {
   color: grey;
 }

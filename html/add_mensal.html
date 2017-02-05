@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="../javascript/head.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/add_mensal.css"></link>
+</head>
+
+<body class="border30">
+  <div class="row">
+    <div class="bottom20 col-xs-9">
+      <button id="back-mensal">Voltar</button>
+      <h1>Informações mensais</h1>
+      <p class="error" hidden></p>
+      <form id="mes-form">
+        <div>
+          <label class="col-xs-12">Ano:</label>
+          <select id="ano-select" >
+          </select>
+        </div>
+        <div>
+          <label class="col-xs-12">Mês:</label>
+          <select id="mes-select">
+            <option value="01" >Janeiro</option>
+            <option value="02" >Fevereiro</option>
+            <option value="03" >Março</option>
+            <option value="04" >Abril</option>
+            <option value="05" >Maio</option>
+            <option value="06" >Junho</option>
+            <option value="07" >Julho</option>
+            <option value="08" >Agosto</option>
+            <option value="09" >Setembro</option>
+            <option value="10">Agosto</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
+          </select>
+        </div>
+        <div>
+          <div class="col-xs-12">
+            <label class="col-xs-12">Total de clientes atendidos:</label>
+            <input class="col-xs-2" id="clientes-input"/>
+            <button id="update-clientes">Atualizar</button>
+          </div>
+          <div class="col-xs-12">
+            <label class="col-xs-12">Total recebido por clientes</label>
+            <input class="col-xs-2" id="recebido-input"/>
+            <button id="update-recebido">Atualizar</button>
+          </div>
+        </div>
+        <div id="despesas">
+          <label class="col-xs-12">Despesas:</label>
+          <input class="col-xs-5 despesa" disabled id="pecas-input" value="Custo de peças"/>
+          <input class="col-xs-5 despesa" id="pecas-val"/>
+          <button id="update-pecas" class="col-xs-2">Atualizar</button>
+        </div>
+        <button id="add-despesa" class="col-xs-5">Adicionar despesa</button>
+        <button id="remove-despesa" class="col-xs-5">Remover despesa</button>
+        <button id="submit-mes" class="top20" type="submit">Adicionar mês</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+<foot>
+  <script src="../javascript/foot.js"></script>
+  <script src="../javascript/add_mensal.js"></script>
+</foot>
+
+</html>

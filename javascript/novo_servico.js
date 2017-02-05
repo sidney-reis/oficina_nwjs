@@ -33,6 +33,21 @@ $("#novo-servico-form").submit(function() {
     $(".error").show();
   }
 
+  else if(isNaN(parseFloat($("#custo-input").val())) || isNaN(parseFloat($("#preco-input").val()))) {
+    $(".error").text("Utilize apenas números e pontos nos campos de custo e preço. Pontos são utilizados para separar reais e centavos.");
+    $(".error").show();
+  }
+
+  else if($("#custo-input").val().includes(",") || $("#preco-input").val().includes(",")) {
+    $(".error").text("Não utilize vírgulas. Utilize pontos para separar reais e centavos.");
+    $(".error").show();
+  }
+
+  else if((($("#custo-input").val().match(/\./g) || []).length > 1) || (($("#preco-input").val().match(/\./g) || []).length > 1)) {
+    $(".error").text("Utilize apenas um ponto separar reais e centavos.");
+    $(".error").show();
+  }
+
   else {
     var fs = require('fs');
     var clientesJSON = JSON.parse(fs.readFileSync('./json/clientes.json', 'utf8'));

@@ -35,3 +35,7 @@ $(".cliente-btn").click(function() {
 $(".estoque-btn").click(function() {
   window.location = "estoque.html";
 });
+
+$(".info-btn").click(function() {
+  window.location = "busca_anual.html";
+});

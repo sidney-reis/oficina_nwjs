@@ -38,27 +38,6 @@ $( "#buscaClientesForm" ).submit(function( event ) {
   else {
     $("#nenhum-cliente").hide();
   }
-  // var rows = table.getElementsByTagName("tr");
-  // for (i = 0; i < rows.length-1; i++) {
-  //   var currentRow = table.rows[i+1];
-  //   var createClickHandler =
-  //     function(row)
-  //     {
-  //       return function() {
-  //         var cell = row.getElementsByTagName("td")[0];
-  //         var id = cell.innerHTML;
-  //         localStorage.setItem("selectedClienteIndex", i);
-  //         console.log(i);
-  //         window.location = "cliente.html";
-  //       };
-  //     };
-
-  //   currentRow.onclick = createClickHandler(currentRow);
-  // }
-
-
-  // fs.readFile('../json/clientes.json', 'utf-8', function (error, contents) {
-  // });
 
   event.preventDefault();
 });

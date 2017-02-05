@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="../javascript/head.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/busca_anual.css"></link>
+</head>
+
+<body class="border30">
+
+  <div class="row">
+    <div class="bottom20 col-xs-6">
+      <button id="back-anual">Voltar</button>
+      <h1>Informações Mensais</h1>
+    </div>
+
+    <div class="bottom20 col-xs-6">
+      <button id="addMensal" class="pull-right bottom20 top20">Adicionar mês</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4 class="col-xs-12">Selecione o ano e o mês:</h4>
+    <div class="col-xs-8">
+      <div>
+        <label class="col-xs-2">Ano:</label>
+        <select class="col-xs-3" id="ano-select" >
+        <option></option>
+        </select>
+      </div>
+      <div>
+        <label class="col-xs-2">Mês:</label>
+        <select class="col-xs-3" id="mes-select">
+        <option></option>
+        </select>
+      </div>
+    </div>
+
+    <div id="info-mes" class="col-xs-12" hidden>
+      <label>Total de clientes atendidos:</label>
+      <p id="clientes"></p>
+      <label>Total recebido por clientes:</label>
+      <p id="recebido"></p>
+      <div id="despesas"/>
+    </div>
+    <!-- <form id="buscaClientesForm" autocomplete="off">
+      <input id="buscaClienteField" type="text" name="busca" class="col-xs-9 ellip border15" placeholder="placa do carro, nome do cliente ou modelo do carro"/>
+      <input class="col-xs-2" type="submit" disabled="disabled" value="Buscar"/>
+    </form> -->
+
+    <!-- <table hidden="true" border="1" id="tabelaResultadosClientes" class="col-xs-12">
+      <tr>
+        <th>Placa do carro</th>
+        <th>Nome do cliente</th>
+        <th>Modelo do carro</th>
+      </tr>
+    </table> -->
+    <!-- <p id="nenhum-cliente" hidden>Nenhum cliente encontrado.</p> -->
+  </div>
+</body>
+
+<foot>
+  <script src="../javascript/foot.js"></script>
+  <script src="../javascript/busca_anual.js"></script>
+</foot>
+
+</html>

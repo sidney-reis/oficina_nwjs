@@ -106,7 +106,7 @@ $(".printServico").click(function() {
   var servicoPos = $(this).attr("servicoNumber");
   var html =
     '<div id="servico-print-box">'+
-      '<img src="../logo.png" alt="Advance Air Service" style:"width: 304px;height:228px;"/>'+
+      '<img src="../logo.png" class="center" alt="Advance Air Service" width="140" height="70" />'+
       '<h2>Dados do cliente:</h2>'+
       '<label>Nome:</label><p>'+cliente.nomeDoCliente+'</p>'+
       '<label>Endereço:</label><p>'+cliente.enderecoDoCliente+'</p>'+

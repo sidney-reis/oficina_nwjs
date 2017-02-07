@@ -1,9 +1,9 @@
 {
-  "name": "Oficina",
+  "name": "Advance Air Service",
   "main": "./html/index.html",
   "window": {
-    "title": "Oficina",
-    "icon": "link.png",
+    "title": "Advance Air Service",
+    "icon": "logo.png",
     "toolbar": true,
     "frame": true,
     "width": 800,

@@ -71,34 +71,44 @@ $('#add-servico').click(function() {
   window.location = "novo_servico.html";
 });
 
-for(var i = 0; i < cliente.servicos.length; i++) {
-  var stringaoHTML =
-    '<div class="servico-box">'+
-      '<h4>'+ cliente.servicos[i].data +'</h4>'+
-      '<label>Serviço executado:</label>'+
-      '<p>'+ cliente.servicos[i].servicoExecutado +'</p>'+
-      '<label>Observações:</label>'+
-      '<p>'+ cliente.servicos[i].observacoes +'</p>'+
-      '<label>Custo para a oficina:</label>'+
-      '<p>'+ cliente.servicos[i].custo +'</p>'+
-      '<label>Preço pago pelo cliente:</label>'+
-      '<p>'+ cliente.servicos[i].preco +'</p>'+
-      '<label>Forma de pagamento:</label>'
-  ;
-  if(cliente.servicos[i].pagamento1=='dinheiro' || cliente.servicos[i].pagamento1=='debito') {
-    stringaoHTML += '<p>'+ cliente.servicos[i].pagamento1 +'</p>';
+if(typeof cliente.servicos !== 'undefined') {
+  if(cliente.servicos.length) {
+    for(var i = 0; i < cliente.servicos.length; i++) {
+      var stringaoHTML =
+        '<div class="servico-box">'+
+          '<h4>'+ cliente.servicos[i].data +'</h4>'+
+          '<label>Serviço executado:</label>'+
+          '<p>'+ cliente.servicos[i].servicoExecutado +'</p>'+
+          '<label>Observações:</label>'+
+          '<p>'+ cliente.servicos[i].observacoes +'</p>'+
+          '<label>Custo para a oficina:</label>'+
+          '<p>'+ cliente.servicos[i].custo +'</p>'+
+          '<label>Preço pago pelo cliente:</label>'+
+          '<p>'+ cliente.servicos[i].preco +'</p>'+
+          '<label>Forma de pagamento:</label>'
+      ;
+      if(cliente.servicos[i].pagamento1=='dinheiro' || cliente.servicos[i].pagamento1=='debito') {
+        stringaoHTML += '<p>'+ cliente.servicos[i].pagamento1 +'</p>';
+      }
+      else if(cliente.servicos[i].pagamento1=='credito') {
+        stringaoHTML += '<p>'+ cliente.servicos[i].pagamento1 +' em '+ cliente.servicos[i].pagamento2 +' vezes'+'</p>';
+      }
+      else if(cliente.servicos[i].pagamento1=='deposito') {
+        stringaoHTML += '<p>'+ cliente.servicos[i].pagamento1 +' na conta '+ cliente.servicos[i].pagamento2 +'</p>';
+      }
+      else if(cliente.servicos[i].pagamento1=='outro') {
+        stringaoHTML += '<p>'+ cliente.servicos[i].pagamento2 +'</p>';
+      }
+      stringaoHTML += '<button class="printServico" servicoNumber='+i+'>Imprimir serviço</button></div>'
+      $("#lista-servicos").append(stringaoHTML);
+    }
   }
-  else if(cliente.servicos[i].pagamento1=='credito') {
-    stringaoHTML += '<p>'+ cliente.servicos[i].pagamento1 +' em '+ cliente.servicos[i].pagamento2 +' vezes'+'</p>';
+  else {
+    $("#servico-nenhum").show();
   }
-  else if(cliente.servicos[i].pagamento1=='deposito') {
-    stringaoHTML += '<p>'+ cliente.servicos[i].pagamento1 +' na conta '+ cliente.servicos[i].pagamento2 +'</p>';
-  }
-  else if(cliente.servicos[i].pagamento1=='outro') {
-    stringaoHTML += '<p>'+ cliente.servicos[i].pagamento2 +'</p>';
-  }
-  stringaoHTML += '<button class="printServico" servicoNumber='+i+'>Imprimir serviço</button></div>'
-  $("#lista-servicos").append(stringaoHTML);
+}
+else {
+  $("#servico-nenhum").show();
 }
 
 $(".printServico").click(function() {
@@ -145,3 +155,148 @@ $(".printServico").click(function() {
   $("#main-container").show();
 
 });
+
+// ordens:
+
+if(typeof cliente.ordens !== 'undefined') {
+  if(cliente.ordens.length) {
+    for(var i = 0; i < cliente.ordens.length; i++) {
+      var stringaoHTML2 =
+        '<div class="ordem-box">'+
+          '<h4>'+ cliente.ordens[i].data +'</h4>'+
+          '<label>Nome:</label>'+
+          '<p>'+ cliente.ordens[i].nome +'</p>'+
+          '<label>Observações:</label>'+
+          '<p>'+ cliente.ordens[i].observacoes +'</p>'+
+          '<label>Preço:</label>'+
+          '<p>'+ cliente.ordens[i].preco +'</p>'
+      ;
+      stringaoHTML2 += '<button class="transformServico" ordemNumber='+i+'>Transformar em Serviço Prestado</button>';
+      stringaoHTML2 += '<p class="transCerteza2 transConf2" ordemNumber='+i+' hidden>Tem certeza que deseja fazer isso?</p>';
+      stringaoHTML2 += '<button class="transSim2 transConf2" ordemNumber='+i+' hidden>Confirmar</button>';
+      stringaoHTML2 += '<button class="transNao2 transConf2" ordemNumber='+i+' hidden>Cancelar</button></div>';
+      $("#lista-ordens").append(stringaoHTML2);
+    }
+  }
+  else {
+    $("#ordens-nenhum").show();
+  }
+}
+else {
+  $("#ordens-nenhum").show();
+}
+
+$(".transformServico").click(function() {
+  var ordemPos = $(this).attr("ordemNumber");
+  $(".transConf2[ordemNumber="+ordemPos+"]").show();
+});
+
+$(".transNao2").click(function() {
+  var ordemPos = $(this).attr("ordemNumber");
+  $(".transConf2[ordemNumber="+ordemPos+"]").hide();
+});
+
+$(".transSim2").click(function() {
+  var ordemPos = $(this).attr("ordemNumber");
+  localStorage.setItem("selectOrdemNumber", ordemPos);
+  window.location = "novo_servico_ordem.html";
+});
+
+// orcamento:
+
+$('#add-orcamento').click(function() {
+  window.location = "novo_orcamento.html";
+});
+
+if(typeof cliente.orcamentos !== 'undefined') {
+  console.log("1");
+  if(cliente.orcamentos.length) {
+    console.log("2");
+    for(var j = 0; j < cliente.orcamentos.length; j++) {
+      console.log("3");
+      var stringaoHTML2 =
+        '<div class="orcamento-box">'+
+          '<h4>'+ cliente.orcamentos[j].data +'</h4>'+
+          '<label>Nome:</label>'+
+          '<p>'+ cliente.orcamentos[j].nome +'</p>'+
+          '<label>Observações:</label>'+
+          '<p>'+ cliente.orcamentos[j].observacoes +'</p>'+
+          '<label>Preço:</label>'+
+          '<p>'+ cliente.orcamentos[j].preco +'</p>'
+      ;
+      stringaoHTML2 += '<button class="printOrcamento" orcamentoNumber='+j+'>Imprimir orçamento</button>';
+      stringaoHTML2 += '<button class="transformOrdem" orcamentoNumber='+j+'>Transformar em Ordem de Serviço</button>';
+      stringaoHTML2 += '<p class="transCerteza transConf" orcamentoNumber='+j+' hidden>Tem certeza que deseja fazer isso?</p>';
+      stringaoHTML2 += '<button class="transSim transConf" orcamentoNumber='+j+' hidden>Confirmar</button>';
+      stringaoHTML2 += '<button class="transNao transConf" orcamentoNumber='+j+' hidden>Cancelar</button></div>';
+      $("#lista-orcamentos").append(stringaoHTML2);
+    }
+  }
+  else {
+    $("#orcamento-nenhum").show();
+  }
+}
+else {
+  $("#orcamento-nenhum").show();
+}
+
+$(".transformOrdem").click(function() {
+  var orcamentoPos = $(this).attr("orcamentoNumber");
+  $(".transConf[orcamentoNumber="+orcamentoPos+"]").show();
+});
+
+$(".transNao").click(function() {
+  var orcamentoPos = $(this).attr("orcamentoNumber");
+  $(".transConf[orcamentoNumber="+orcamentoPos+"]").hide();
+});
+
+$(".transSim").click(function() {
+  var orcamentoPos = $(this).attr("orcamentoNumber");
+  var fs = require('fs');
+  var clientesJSON = JSON.parse(fs.readFileSync('./json/clientes.json', 'utf8'));
+
+  clientesJSON.clientes[localStorage.getItem("selectedClienteIndex")].ordens.push({
+    "nome": clientesJSON.clientes[localStorage.getItem("selectedClienteIndex")].orcamentos[orcamentoPos].nome ,
+    "data": clientesJSON.clientes[localStorage.getItem("selectedClienteIndex")].orcamentos[orcamentoPos].data ,
+    "observacoes": clientesJSON.clientes[localStorage.getItem("selectedClienteIndex")].orcamentos[orcamentoPos].observacoes ,
+    "preco": clientesJSON.clientes[localStorage.getItem("selectedClienteIndex")].orcamentos[orcamentoPos].preco
+  });
+
+  clientesJSON.clientes[localStorage.getItem("selectedClienteIndex")].orcamentos.splice(orcamentoPos, 1);
+
+  fs.writeFileSync("./json/clientes.json", JSON.stringify(clientesJSON), function(err) {
+      if(err) {
+          return console.log(err);
+      }
+  });
+  location.reload();
+});
+
+$(".printOrcamento").click(function() {
+  $("#main-container").hide();
+  var orcamentoPos = $(this).attr("orcamentoNumber");
+  var html =
+    '<div id="orcamento-print-box">'+
+      '<img src="../logo.png" class="center" alt="Advance Air Service" width="140" height="70" />'+
+      '<h2>Dados do cliente:</h2>'+
+      '<label>Nome:</label><p>'+cliente.nomeDoCliente+'</p>'+
+      '<label>Endereço:</label><p>'+cliente.enderecoDoCliente+'</p>'+
+      '<label>Placa do carro:</label><p>'+cliente.placaDoCarro+'</p>'+
+      '<label>Modelo:</label><p>'+cliente.modeloDoCarro+'</p>'+
+      '<label>Quilometragem:</label><p>'+cliente.quilometragemDoCarro+'</p>'+
+      '<label>Ano do carro:</label><p>'+cliente.anoDoCarro+'</p>'+
+      '<h2>Dados do orçamento:</h2>'+
+      '<h4>'+ cliente.orcamentos[orcamentoPos].data +'</h4>'+
+      '<label>Nome:</label>'+
+      '<p>'+ cliente.orcamentos[orcamentoPos].nome +'</p>'+
+      '<label>Observações:</label>'+
+      '<p>'+ cliente.orcamentos[orcamentoPos].observacoes +'</p>'+
+      '<label>Preço:</label>'+
+      '<p>'+ cliente.orcamentos[orcamentoPos].preco +'</p>';
+
+  $("#the-body").append(html);
+  window.print();
+  $("#orcamento-print-box").remove();
+  $("#main-container").show();
+});
+

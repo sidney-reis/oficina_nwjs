@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="../javascript/head.js"></script>
+  <script src="../javascript/jquery.maskedinput.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/novo_orcamento.css"></link>
+</head>
+
+<body class="border30">
+  <div class="row">
+    <div class="bottom20 col-xs-9">
+      <button id="back-cliente" class="back-btn">Voltar</button>
+      <h1>Novo Orçamento</h1>
+      <p class="error"></p>
+      <form id="novo-orcamento-form" autocomplete="off">
+        <div>
+          <label class="col-xs-12">Nome do orçamento:</label>
+          <input class="col-xs-12" id="nome-input"/>
+        </div>
+        <div>
+          <label class="col-xs-12">Data do orçamento:</label>
+          <input class="col-xs-12" id="data-input"/>
+        </div>
+        <div>
+          <label class="col-xs-12">Observações:</label>
+          <input class="col-xs-12" id="observacoes-input"/>
+        </div>
+        <div>
+          <label class="col-xs-12">Preço:</label>
+          <input class="col-xs-12" id="preco-input"/>
+        </div>
+        <button id="submit-orçamento" type="submit">Adicionar</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+<foot>
+  <script src="../javascript/foot.js"></script>
+  <script src="../javascript/novo_orcamento.js"></script>
+</foot>
+
+</html>

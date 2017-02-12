@@ -17,7 +17,9 @@ $("#novo-cliente-form").submit(function( event ) {
       "observacoes": $("#observacoes-input").val(),
       "dataUltimoServico": "",
       "serviçoExecutado": "",
-      "servicos": []
+      "servicos": [],
+      "orcamentos": [],
+      "ordens": []
     });
     fs.writeFileSync("./json/clientes.json", JSON.stringify(clientesJSON), function(err) {
         if(err) {

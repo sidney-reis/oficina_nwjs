@@ -2,5 +2,32 @@
   margin-top: 20px;
   background-color: lightgrey;
   padding: 10px;
-  border-radius: 25px;
+  border-radius: 10px;
+}
+
+.orcamento-box {
+  margin-top: 20px;
+  background-color: lightgrey;
+  padding: 10px;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.ordem-box {
+  margin-top: 20px;
+  background-color: lightgrey;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.transNao {
+  margin-left: 5px;
+}
+
+.transformOrdem {
+  margin-left: 5px;
+}
+
+.transNao2 {
+  margin-left: 5px;
 }

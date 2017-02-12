@@ -10,34 +10,45 @@ for(var i = 0; i <Object.keys(mesesJSON.meses).length; i++){
 
 $('#ano-select').change(function() {
   $("#info-mes").hide();
-  $("#anoh3").text("Gastos de "+$('#ano-select').val()+":");
-  var gastoAno = 0;
-  for(var i = 0; i < Object.keys(mesesJSON.meses[$('#ano-select').val()]).length; i++){
-    for(var j = 0; j < mesesJSON.meses[$('#ano-select').val()][Object.keys(mesesJSON.meses[$('#ano-select').val()])[i]].despesas.length; j++){
-      gastoAno += parseFloat(Object.values(mesesJSON.meses[$('#ano-select').val()][Object.keys(mesesJSON.meses[$('#ano-select').val()])[i]].despesas[j])[0]);
-    }
-  }
-  console.log(gastoAno);
-  $("#gastoano").text(gastoAno);
-  $("#info-ano").show();
-
-  var myNode =document.getElementById("mes-select");
-  while (myNode.firstChild) {
-      myNode.removeChild(myNode.firstChild);
-  }
-  $('#mes-select').append($('<option>', {}));
-
   if($('#ano-select').val()){
-    for(var i = 0; i <Object.keys(mesesJSON.meses[$('#ano-select').val()]).length; i++){
-      $('#mes-select').append($('<option>', {
-        value: Object.keys(mesesJSON.meses[$('#ano-select').val()])[i],
-        text: Object.keys(mesesJSON.meses[$('#ano-select').val()])[i]
-      }));
+    $("#anoh3").text("Gastos de "+$('#ano-select').val()+":");
+    var gastoAno = 0;
+    for(var i = 0; i < Object.keys(mesesJSON.meses[$('#ano-select').val()]).length; i++){
+      for(var j = 0; j < mesesJSON.meses[$('#ano-select').val()][Object.keys(mesesJSON.meses[$('#ano-select').val()])[i]].despesas.length; j++){
+        gastoAno += parseFloat(Object.values(mesesJSON.meses[$('#ano-select').val()][Object.keys(mesesJSON.meses[$('#ano-select').val()])[i]].despesas[j])[0]);
+      }
     }
+    $("#gastoano").text(gastoAno);
+    $("#info-ano").show();
+
+    var myNode =document.getElementById("mes-select");
+    while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+    }
+    $('#mes-select').append($('<option>', {}));
+
+    if($('#ano-select').val()){
+      for(var i = 0; i <Object.keys(mesesJSON.meses[$('#ano-select').val()]).length; i++){
+        $('#mes-select').append($('<option>', {
+          value: Object.keys(mesesJSON.meses[$('#ano-select').val()])[i],
+          text: Object.keys(mesesJSON.meses[$('#ano-select').val()])[i]
+        }));
+      }
+    }
+  }
+  else {
+    $("#info-ano").hide();
+    var myNode =document.getElementById("mes-select");
+    while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+    }
+    $('#mes-select').append($('<option>', {}));
   }
 });
 
 $('#mes-select').change(function() {
+  $("#info-ano").hide();
+
   if($('#mes-select').val()){
     var myNode =document.getElementById("despesas");
     while (myNode.firstChild) {

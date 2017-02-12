@@ -3,7 +3,7 @@
 
 <head>
   <script src="../javascript/head.js"></script>
-  <link rel="stylesheet" type="text/css" href="../css/servicos.css"></link>
+  <link rel="stylesheet" type="text/css" href="../css/consulta_servicos.css"></link>
 </head>
 
 <body class="border30">
@@ -20,26 +20,19 @@
   </div>
 
   <div class="row">
-    <h4 class="col-xs-12">Busca de clientes:</h4>
-    <form id="buscaClientesForm" autocomplete="off">
-      <input id="buscaClienteField" type="text" name="busca" class="col-xs-10 ellip" placeholder="placa do carro, nome do cliente ou modelo do carro"/>
-      <input class="col-xs-2" type="submit" disabled="disabled" value="Buscar"/>
-    </form>
-
-    <table hidden="true" border="1" id="tabelaResultadosClientes" class="col-xs-12">
+    <table border="1" id="tabelaServicos" class="col-xs-6 col-xs-offset-3">
       <tr>
-        <th>Placa do carro</th>
-        <th>Nome do cliente</th>
-        <th>Modelo do carro</th>
+        <th>Nome do Serviço</th>
+        <th>Preço cobado</th>
       </tr>
     </table>
-    <p id="nenhum-cliente" class="col-xs-12" hidden>Nenhum cliente encontrado.</p>
+    <p id="nenhum-servico" class="col-xs-12" hidden>Nenhum serviço cadastrado.</p>
   </div>
 </body>
 
 <foot>
   <script src="../javascript/foot.js"></script>
-  <script src="../javascript/servicos.js"></script>
+  <script src="../javascript/consulta_servicos.js"></script>
 </foot>
 
 </html>

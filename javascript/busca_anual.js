@@ -57,15 +57,15 @@ $('#mes-select').change(function() {
     $("#clientes").text(mesesJSON.meses[$('#ano-select').val()][$('#mes-select').val()].clientes);
     $("#recebido").text(mesesJSON.meses[$('#ano-select').val()][$('#mes-select').val()].recebido);
 
-    $("#despesas").append('<h4>Despesas</h4>')
+    $("#despesas").append('<h4>Despesas:</h4>')
     var despesas = mesesJSON.meses[$('#ano-select').val()][$('#mes-select').val()].despesas;
     var totalDesp = 0;
     for(var i = 0; i < despesas.length;i++){
       totalDesp += parseFloat(Object.values(despesas[i])[0]);
-      $("#despesas").append('<label>'+Object.keys(despesas[i])[0]+'</label><p>'+Object.values(despesas[i])[0]+'</p>');
+      $("#despesas").append('<label class="labelfloat">'+Object.keys(despesas[i])[0]+':</label><p>'+Object.values(despesas[i])[0]+'</p>');
     }
 
-    $("#despesas").append('<h3>Total em despesas:</h3><p>'+totalDesp+'</p><button id="edit-mes" onclick="editClick()">Modificar mês</button>');
+    $("#despesas").append('<h4>Total em despesas:</h4><p>'+totalDesp+'</p><button id="edit-mes" onclick="editClick()">Modificar mês</button>');
     $("#info-mes").show();
   }
   else{

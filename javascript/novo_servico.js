@@ -56,6 +56,7 @@ $("#novo-servico-form").submit(function() {
       "servicoExecutado": $("#servico-input").val(),
       "data": $("#data-input").val(),
       "observacoes": $("#observacoes-input").val(),
+      "observacoesOficina": $("#observacoes-oficina-input").val(),
       "custo": $("#custo-input").val(),
       "preco": $("#preco-input").val(),
       "pagamento1": $('input[name=forma-pagamento]:checked', '#novo-servico-form').val(),

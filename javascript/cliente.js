@@ -79,7 +79,9 @@ if(typeof cliente.servicos !== 'undefined') {
           '<h4>'+ cliente.servicos[i].data +'</h4>'+
           '<label>Serviço executado:</label>'+
           '<p>'+ cliente.servicos[i].servicoExecutado +'</p>'+
-          '<label>Observações:</label>'+
+          '<label>Observações para a oficina:</label>'+
+          '<p>'+ cliente.servicos[i].observacoesOficina +'</p>'+
+          '<label>Observações para o cliente:</label>'+
           '<p>'+ cliente.servicos[i].observacoes +'</p>'+
           '<label>Custo para a oficina:</label>'+
           '<p>'+ cliente.servicos[i].custo +'</p>'+
@@ -116,7 +118,7 @@ $(".printServico").click(function() {
   var servicoPos = $(this).attr("servicoNumber");
   var html =
     '<div id="servico-print-box">'+
-      '<img src="../logo.png" class="center" alt="Advance Air Service" width="140" height="70" />'+
+      '<img class="center top30 bottom30" src="../mainlogo.png" alt="Advance Air Service" width="291" height="71" />'+
       '<h2>Dados do cliente:</h2>'+
       '<label>Nome:</label><p>'+cliente.nomeDoCliente+'</p>'+
       '<label>Endereço:</label><p>'+cliente.enderecoDoCliente+'</p>'+
@@ -277,7 +279,7 @@ $(".printOrcamento").click(function() {
   var orcamentoPos = $(this).attr("orcamentoNumber");
   var html =
     '<div id="orcamento-print-box">'+
-      '<img src="../logo.png" class="center" alt="Advance Air Service" width="140" height="70" />'+
+      '<img class="center top30 bottom30" src="../mainlogo.png" alt="Advance Air Service" width="291" height="71" />'+
       '<h2>Dados do cliente:</h2>'+
       '<label>Nome:</label><p>'+cliente.nomeDoCliente+'</p>'+
       '<label>Endereço:</label><p>'+cliente.enderecoDoCliente+'</p>'+

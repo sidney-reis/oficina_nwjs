@@ -75,9 +75,10 @@ $("#save-edit-btn").click(function(){
           return console.log(err);
       }
   });
-  servico = JSON.parse(fs.readFileSync('./json/servicos.json', 'utf8')).servicos.slice(-1)[0];
-  $("#headerServico").text(servico.nome);
-  $("#nome-p").text(servico.nome ? servico.nome : "Informação não registrada.");
-  $("#preco-p").text(servico.preco ? servico.preco : "Informação não registrada.");
-  $("#observacoes-p").text(servico.observacoes ? servico.observacoes : "Informação não registrada.");
+  window.location = "consulta_servicos.html";
+  // servico = JSON.parse(fs.readFileSync('./json/servicos.json', 'utf8')).servicos.slice(-1)[0];
+  // $("#headerServico").text(servico.nome);
+  // $("#nome-p").text(servico.nome ? servico.nome : "Informação não registrada.");
+  // $("#preco-p").text(servico.preco ? servico.preco : "Informação não registrada.");
+  // $("#observacoes-p").text(servico.observacoes ? servico.observacoes : "Informação não registrada.");
 });

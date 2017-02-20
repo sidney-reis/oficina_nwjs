@@ -3,7 +3,7 @@
   "main": "./html/index.html",
   "window": {
     "title": "Advance Air Service",
-    "icon": "logo.png",
+    "icon": "favicon.png",
     "toolbar": true,
     "frame": true,
     "width": 800,

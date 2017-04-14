@@ -1,8 +1,11 @@
 .oi {color: red;}
 
+.top0  { margin-top: 0px;   }
+.top10 { margin-top: 10px;  }
 .top20 { margin-top: 20px;  }
 .top30 { margin-top: 30px !important;  }
 
+.bottom0  { margin-bottom: 0px;  }
 .bottom5  { margin-bottom: 5px;  }
 .bottom10 { margin-bottom: 10px; }
 .bottom20 { margin-bottom: 20px; }

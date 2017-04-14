@@ -9,6 +9,8 @@ $("#novo-cliente-form").submit(function( event ) {
     var clientesJSON = JSON.parse(fs.readFileSync('./json/clientes.json', 'utf8'));
     clientesJSON.clientes.push({
       "nomeDoCliente": $("#nome-cliente-input").val(),
+      "cpfDoCliente": $("#cpf-input").val(),
+      "telefoneDoCliente": $("#telefone-input").val(),
       "enderecoDoCliente": $("#endereco-input").val(),
       "placaDoCarro": $("#placa-input").val(),
       "modeloDoCarro": $("#modelo-input").val(),
@@ -30,6 +32,13 @@ $("#novo-cliente-form").submit(function( event ) {
   }
 
   return false;
+});
+
+$("#cpf-input").keypress(function (e) {
+  // if the letter is not digit then display error and don't type anything
+   if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+       return false;
+  }
 });
 
 $("#back-cliente").click(function(){

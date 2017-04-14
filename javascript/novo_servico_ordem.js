@@ -31,7 +31,39 @@ $("input[name=forma-pagamento]").click(function() {
 });
 
 $("#novo-servico-form").submit(function() {
-  if($("#servico-input").val().trim() == '') {
+  var existNumber = false;
+  var selectedCliente = localStorage.getItem("selectedClienteIndex");
+  var selectedOrdem = localStorage.getItem("selectOrdemNumber");
+  for(cliente in clientesJSON.clientes) {
+    for(orcamento in clientesJSON.clientes[cliente].orcamentos) {
+      if(clientesJSON.clientes[cliente].orcamentos[orcamento].numeroOrcamento == $("#numero-input").val()) {
+        existNumber = true;
+        break;
+      }
+    }
+    for(servico in clientesJSON.clientes[cliente].servicos) {
+      if(clientesJSON.clientes[cliente].servicos[servico].numeroServico == $("#numero-input").val()) {
+        existNumber = true;
+        break;
+      }
+    }
+    for(ordem in clientesJSON.clientes[cliente].ordens) {
+      if((cliente == selectedCliente)&&(ordem == selectedOrdem)) {
+        continue;
+      }
+      if(clientesJSON.clientes[cliente].ordens[ordem].numeroOrdem == $("#numero-input").val()) {
+        existNumber = true;
+        break;
+      }
+    }
+  }
+
+  if(existNumber && $("#numero-input").val().length) {
+    $(".error").text("Número de identificação informado já existe.");
+    $(".error").show();
+  }
+
+  else if($("#servico-input").val().trim() == '') {
     $(".error").text("Não foi possível adicionar serviço. O campo de serviço executado deve ser preenchido.");
     $(".error").show();
   }
@@ -54,8 +86,10 @@ $("#novo-servico-form").submit(function() {
   else {
     clientesJSON.clientes[localStorage.getItem("selectedClienteIndex")].servicos.push({
       "servicoExecutado": $("#servico-input").val(),
+      "numeroServico": $("#numero-input").val(),
       "data": $("#data-input").val(),
       "observacoes": $("#observacoes-input").val(),
+      "observacoesOficina": $("#observacoes-oficina-input").val(),
       "custo": $("#custo-input").val(),
       "preco": $("#preco-input").val(),
       "pagamento1": $('input[name=forma-pagamento]:checked', '#novo-servico-form').val(),
@@ -75,6 +109,12 @@ $("#novo-servico-form").submit(function() {
   return false;
 });
 
+$("#numero-button").click(function() {
+  $("#numero-input").val(encontrarNumeroIdentificacaoLivre());
+  return false;
+});
+
 $("#servico-input").val(clientesJSON.clientes[localStorage.getItem("selectedClienteIndex")].ordens[localStorage.getItem("selectOrdemNumber")].nome);
+$("#numero-input").val(clientesJSON.clientes[localStorage.getItem("selectedClienteIndex")].ordens[localStorage.getItem("selectOrdemNumber")].numeroOrdem);
 $("#observacoes-input").val(clientesJSON.clientes[localStorage.getItem("selectedClienteIndex")].ordens[localStorage.getItem("selectOrdemNumber")].observacoes);
 $("#preco-input").val(clientesJSON.clientes[localStorage.getItem("selectedClienteIndex")].ordens[localStorage.getItem("selectOrdemNumber")].preco);

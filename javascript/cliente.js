@@ -161,26 +161,34 @@ $(".printServico").click(function() {
       '<img class="center top30" src="../mainlogo.png" alt="Advance Air Service" width="291" height="71" />'+
       '<p class="center top10 bottom0" style="font-size:11px; text-align:center;">Av. Frederico Ritter 1455 - Cachoeirinha RS</p>'+
       '<p class="center top0 bottom30" style="font-size:11px; text-align:center;"> Telefone: 3471.4077</p>'+
-      '<h2>Dados do cliente:</h2>'+
-      '<label>Nome:</label><p>'+cliente.nomeDoCliente+'</p>'+
-      '<label>CPF ou CNPJ:</label><p>'+cpf+'</p>'+
-      '<label>Telefone:</label><p>'+tel+'</p>'+
-      '<label>Endereço:</label><p>'+cliente.enderecoDoCliente+'</p>'+
-      '<label>Placa do carro:</label><p>'+cliente.placaDoCarro+'</p>'+
-      '<label>Modelo:</label><p>'+cliente.modeloDoCarro+'</p>'+
-      '<label>Quilometragem:</label><p>'+cliente.quilometragemDoCarro+'</p>'+
-      '<label>Ano do carro:</label><p>'+cliente.anoDoCarro+'</p>'+
-      '<h2>Dados do serviço:</h2>'+
-      '<h4>'+ cliente.servicos[servicoPos].data +'</h4>'+
-      '<label>Serviço executado:</label>'+
-      '<p>'+ cliente.servicos[servicoPos].servicoExecutado +'</p>'+
-      '<label>Número de identificação:</label>'+
-      '<p>'+ numeroServico +'</p>'+
-      '<label>Observações:</label>'+
-      '<p>'+ cliente.servicos[servicoPos].observacoes +'</p>'+
-      '<label>Preço pago pelo cliente:</label>'+
-      '<p>'+ cliente.servicos[servicoPos].preco +'</p>'+
-      '<label>Forma de pagamento:</label>';
+      '<fieldset class="col-xs-5" style="border: 3px black solid; margin-right:10px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO CLIENTE</legend>'+
+        '<div style="margin: 5px">'+
+          '<label>Nome:</label><p>'+cliente.nomeDoCliente+'</p>'+
+          '<label>CPF ou CNPJ:</label><p>'+cpf+'</p>'+
+          '<label>Telefone:</label><p>'+tel+'</p>'+
+          '<label>Endereço:</label><p>'+cliente.enderecoDoCliente+'</p>'+
+          '<label>Placa do carro:</label><p>'+cliente.placaDoCarro+'</p>'+
+          '<label>Modelo:</label><p>'+cliente.modeloDoCarro+'</p>'+
+          '<label>Quilometragem:</label><p>'+cliente.quilometragemDoCarro+'</p>'+
+          '<label>Ano do carro:</label><p>'+cliente.anoDoCarro+'</p>'+
+        '</div>'+
+      '</fieldset>'+
+      '<fieldset class="col-xs-6" style="border: 3px black solid; margin-right:10px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO SERVIÇO</legend>'+
+        '<div style="margin: 5px">'+
+          '<h4>'+ cliente.servicos[servicoPos].data +'</h4>'+
+          '<label>Serviço executado:</label>'+
+          '<p>'+ cliente.servicos[servicoPos].servicoExecutado +'</p>'+
+          '<label>Número de identificação:</label>'+
+          '<p>'+ numeroServico +'</p>'+
+          '<label>Observações:</label>'+
+          '<p>'+ cliente.servicos[servicoPos].observacoes +'</p>'+
+          '<label>Preço pago pelo cliente:</label>'+
+          '<p>'+ cliente.servicos[servicoPos].preco +'</p>'+
+          '<label>Forma de pagamento:</label>'+
+        '</div>'+
+      '</fieldset>';
 
   if(cliente.servicos[servicoPos].pagamento1=='dinheiro' || cliente.servicos[servicoPos].pagamento1=='debito') {
     html += '<p>'+ cliente.servicos[servicoPos].pagamento1 +'</p></div></body>';
@@ -348,25 +356,33 @@ $(".printOrcamento").click(function() {
       '<img class="center top30 bottom30" src="../mainlogo.png" alt="Advance Air Service" width="291" height="71" />'+
       '<p class="center top10 bottom0" style="font-size:11px; text-align:center;">Av. Frederico Ritter 1455 - Cachoeirinha RS</p>'+
       '<p class="center top0 bottom30" style="font-size:11px; text-align:center;"> Telefone: 3471.4077</p>'+
-      '<h2>Dados do cliente:</h2>'+
-      '<label>Nome:</label><p>'+cliente.nomeDoCliente+'</p>'+
-      '<label>CPF ou CNPJ:</label><p>'+cpf+'</p>'+
-      '<label>Telefone:</label><p>'+tel+'</p>'+
-      '<label>Endereço:</label><p>'+cliente.enderecoDoCliente+'</p>'+
-      '<label>Placa do carro:</label><p>'+cliente.placaDoCarro+'</p>'+
-      '<label>Modelo:</label><p>'+cliente.modeloDoCarro+'</p>'+
-      '<label>Quilometragem:</label><p>'+cliente.quilometragemDoCarro+'</p>'+
-      '<label>Ano do carro:</label><p>'+cliente.anoDoCarro+'</p>'+
-      '<h2>Dados do orçamento:</h2>'+
-      '<h4>'+ cliente.orcamentos[orcamentoPos].data +'</h4>'+
-      '<label>Nome:</label>'+
-      '<p>'+ cliente.orcamentos[orcamentoPos].nome +'</p>'+
-      '<label>Número de identificação:</label>'+
-      '<p>'+ numeroOrcamento +'</p>'+
-      '<label>Observações:</label>'+
-      '<p>'+ cliente.orcamentos[orcamentoPos].observacoes +'</p>'+
-      '<label>Preço:</label>'+
-      '<p>'+ cliente.orcamentos[orcamentoPos].preco +'</p>';
+      '<fieldset class="col-xs-5" style="border: 3px black solid; margin-right:10px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO CLIENTE</legend>'+
+        '<div style="margin: 5px">'+
+          '<label>Nome:</label><p>'+cliente.nomeDoCliente+'</p>'+
+          '<label>CPF ou CNPJ:</label><p>'+cpf+'</p>'+
+          '<label>Telefone:</label><p>'+tel+'</p>'+
+          '<label>Endereço:</label><p>'+cliente.enderecoDoCliente+'</p>'+
+          '<label>Placa do carro:</label><p>'+cliente.placaDoCarro+'</p>'+
+          '<label>Modelo:</label><p>'+cliente.modeloDoCarro+'</p>'+
+          '<label>Quilometragem:</label><p>'+cliente.quilometragemDoCarro+'</p>'+
+          '<label>Ano do carro:</label><p>'+cliente.anoDoCarro+'</p>'+
+        '</div>'+
+      '</fieldset>'+
+      '<fieldset class="col-xs-6" style="border: 3px black solid">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO ORÇAMENTO</legend>'+
+        '<div style="margin: 5px;">'+
+        '<h4>'+ cliente.orcamentos[orcamentoPos].data +'</h4>'+
+        '<label>Nome:</label>'+
+        '<p>'+ cliente.orcamentos[orcamentoPos].nome +'</p>'+
+        '<label>Número de identificação:</label>'+
+        '<p>'+ numeroOrcamento +'</p>'+
+        '<label>Observações:</label>'+
+        '<p>'+ cliente.orcamentos[orcamentoPos].observacoes +'</p>'+
+        '<label>Preço:</label>'+
+        '<p>'+ cliente.orcamentos[orcamentoPos].preco +'</p>'+
+        '</div>'+
+      "</fieldset>";
 
   $("#the-body").append(html);
   window.print();

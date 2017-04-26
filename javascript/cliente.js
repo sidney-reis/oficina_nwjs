@@ -186,21 +186,19 @@ $(".printServico").click(function() {
           '<p>'+ cliente.servicos[servicoPos].observacoes +'</p>'+
           '<label>Preço pago pelo cliente:</label>'+
           '<p>'+ cliente.servicos[servicoPos].preco +'</p>'+
-          '<label>Forma de pagamento:</label>'+
-        '</div>'+
-      '</fieldset>';
+          '<label>Forma de pagamento:</label>';
 
   if(cliente.servicos[servicoPos].pagamento1=='dinheiro' || cliente.servicos[servicoPos].pagamento1=='debito') {
-    html += '<p>'+ cliente.servicos[servicoPos].pagamento1 +'</p></div></body>';
+    html += '<p>'+ cliente.servicos[servicoPos].pagamento1 +'</p></fieldset></div></div></body>';
   }
   else if(cliente.servicos[servicoPos].pagamento1=='credito') {
-    html += '<p>'+ cliente.servicos[servicoPos].pagamento1 +' em '+ cliente.servicos[servicoPos].pagamento2 +' vezes'+'</p></div></body>';
+    html += '<p>'+ cliente.servicos[servicoPos].pagamento1 +' em '+ cliente.servicos[servicoPos].pagamento2 +' vezes'+'</p></fieldset></div></div></body>';
   }
   else if(cliente.servicos[servicoPos].pagamento1=='deposito') {
-    html += '<p>'+ cliente.servicos[servicoPos].pagamento1 +' na conta '+ cliente.servicos[servicoPos].pagamento2 +'</p></div></body>';
+    html += '<p>'+ cliente.servicos[servicoPos].pagamento1 +' na conta '+ cliente.servicos[servicoPos].pagamento2 +'</p></fieldset></div></div></body>';
   }
   else if(cliente.servicos[servicoPos].pagamento1=='outro') {
-    html += '<p>'+ cliente.servicos[servicoPos].pagamento2 +'</p></div></body>';
+    html += '<p>'+ cliente.servicos[servicoPos].pagamento2 +'</p></fieldset></div></div></body>';
   }
 
   $("#the-body").append(html);

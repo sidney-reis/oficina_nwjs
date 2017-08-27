@@ -156,51 +156,151 @@ $(".printServico").click(function() {
   if(typeof cliente.servicos[servicoPos].numeroServico !== 'undefined') {
     numeroServico = cliente.servicos[servicoPos].numeroServico;
   }
+
   var html =
+    // '<div id="servico-print-box">'+
+      // '<img class="center top30" src="../mainlogo.png" alt="Advance Air Service" width="291" height="71" />'+
+      // '<p class="center top10 bottom0" style="font-size:11px; text-align:center;">Av. Frederico Ritter 1455 - Cachoeirinha RS</p>'+
+      // '<p class="center top0 bottom30" style="font-size:11px; text-align:center;"> Telefone: 3471.4077</p>'+
+      // '<fieldset class="col-xs-5" style="border: 3px black solid; margin-right:10px">'+
+        // '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO CLIENTE</legend>'+
+        // '<div style="margin: 5px">'+
+          // '<label>Nome:</label><p>'+cliente.nomeDoCliente+'</p>'+
+          // '<label>CPF ou CNPJ:</label><p>'+cpf+'</p>'+
+          // '<label>Telefone:</label><p>'+tel+'</p>'+
+          // '<label>Endereço:</label><p>'+cliente.enderecoDoCliente+'</p>'+
+          // '<label>Placa do carro:</label><p>'+cliente.placaDoCarro+'</p>'+
+          // '<label>Modelo:</label><p>'+cliente.modeloDoCarro+'</p>'+
+          // '<label>Quilometragem:</label><p>'+cliente.quilometragemDoCarro+'</p>'+
+          // '<label>Ano do carro:</label><p>'+cliente.anoDoCarro+'</p>'+
+        // '</div>'+
+      // '</fieldset>'+
+      // '<fieldset class="col-xs-6" style="border: 3px black solid; margin-right:10px">'+
+        // '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO SERVIÇO</legend>'+
+        // '<div style="margin: 5px">'+
+          // '<h4>'+ cliente.servicos[servicoPos].data +'</h4>'+
+          // '<label>Serviço executado:</label>'+
+          // '<p>'+ cliente.servicos[servicoPos].servicoExecutado +'</p>'+
+          // '<label>Número de identificação:</label>'+
+          // '<p>'+ numeroServico +'</p>'+
+          // '<label>Observações:</label>'+
+          // '<p>'+ cliente.servicos[servicoPos].observacoes +'</p>'+
+          // '<label>Preço pago pelo cliente:</label>'+
+          // '<p>'+ cliente.servicos[servicoPos].preco +'</p>'+
+          // '<label>Forma de pagamento:</label>';
     '<div id="servico-print-box">'+
-      '<img class="center top30" src="../mainlogo.png" alt="Advance Air Service" width="291" height="71" />'+
-      '<p class="center top10 bottom0" style="font-size:11px; text-align:center;">Av. Frederico Ritter 1455 - Cachoeirinha RS</p>'+
-      '<p class="center top0 bottom30" style="font-size:11px; text-align:center;"> Telefone: 3471.4077</p>'+
-      '<fieldset class="col-xs-5" style="border: 3px black solid; margin-right:10px">'+
-        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO CLIENTE</legend>'+
+      '<img class="center top30 bottom30" src="../mainlogo.png" alt="Advance Air Service" width="291" height="71" />'+
+      '<fieldset class="col-xs-3" style="border: 3px black solid; margin-right:30px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DATA</legend>'+
         '<div style="margin: 5px">'+
-          '<label>Nome:</label><p>'+cliente.nomeDoCliente+'</p>'+
-          '<label>CPF ou CNPJ:</label><p>'+cpf+'</p>'+
-          '<label>Telefone:</label><p>'+tel+'</p>'+
-          '<label>Endereço:</label><p>'+cliente.enderecoDoCliente+'</p>'+
-          '<label>Placa do carro:</label><p>'+cliente.placaDoCarro+'</p>'+
-          '<label>Modelo:</label><p>'+cliente.modeloDoCarro+'</p>'+
-          '<label>Quilometragem:</label><p>'+cliente.quilometragemDoCarro+'</p>'+
-          '<label>Ano do carro:</label><p>'+cliente.anoDoCarro+'</p>'+
+          '<div class="col-xs-12" style="text-align: center; margin-bottom: 20px"><h4>'+ cliente.servicos[servicoPos].data +'</h4></div>'+
         '</div>'+
       '</fieldset>'+
-      '<fieldset class="col-xs-6" style="border: 3px black solid; margin-right:10px">'+
-        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO SERVIÇO</legend>'+
+      '<fieldset class="col-xs-5" style="border: 3px black solid; margin-right:30px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">EMPRESA</legend>'+
+        '<div style="text-align: center; margin: 5px">'+
+          '<div class="col-xs-12"><p>'+ 'Av. Flores da Cunha, 151 - Cachoeirinha RS' +'</p></div>'+
+          '<div class="col-xs-12"><p>'+ 'Telefone: 3471.4077' +'</p></div>'+
+        '</div>'+
+      '</fieldset>'+
+      '<fieldset class="col-xs-3" style="border: 3px black solid">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">SERVIÇO</legend>'+
         '<div style="margin: 5px">'+
-          '<h4>'+ cliente.servicos[servicoPos].data +'</h4>'+
-          '<label>Serviço executado:</label>'+
-          '<p>'+ cliente.servicos[servicoPos].servicoExecutado +'</p>'+
-          '<label>Número de identificação:</label>'+
-          '<p>'+ numeroServico +'</p>'+
-          '<label>Observações:</label>'+
-          '<p>'+ cliente.servicos[servicoPos].observacoes +'</p>'+
-          '<label>Preço pago pelo cliente:</label>'+
-          '<p>'+ cliente.servicos[servicoPos].preco +'</p>'+
-          '<label>Forma de pagamento:</label>';
-
-  if(cliente.servicos[servicoPos].pagamento1=='dinheiro' || cliente.servicos[servicoPos].pagamento1=='debito') {
-    html += '<p>'+ cliente.servicos[servicoPos].pagamento1 +'</p></fieldset></div></div></body>';
+          '<div class="col-xs-12" style="text-align: center; margin-bottom: 20px"><h4> ID: '+ numeroServico +'</h4></div>'+
+        '</div>'+
+      '</fieldset>'+
+      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO CLIENTE</legend>'+
+        '<div style="margin: 5px">'+
+          '<div class="col-xs-6"><p>Nome: '+cliente.nomeDoCliente+'</p></div>'+
+          '<div class="col-xs-6"><p>Telefone: '+tel+'</p></div>'+
+          '<div class="col-xs-6"><p>CPF ou CNPJ: '+cpf+'</p></div>'+
+          '<div class="col-xs-6"><p>Endereço: '+cliente.enderecoDoCliente+'</p></div>'+
+        '</div>'+
+      '</fieldset>'+
+      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO CARRO</legend>'+
+        '<div style="margin: 5px">'+
+          '<div class="col-xs-6"><p>Modelo: '+cliente.modeloDoCarro+'</p></div>'+
+          '<div class="col-xs-6"><p>Ano do carro: '+cliente.anoDoCarro+'</p></div>'+
+          '<div class="col-xs-6"><p>Quilometragem: '+cliente.quilometragemDoCarro+'</p></div>'+
+          '<div class="col-xs-6"><p>Placa do carro: '+cliente.placaDoCarro+'</p></div>'+
+        '</div>'+
+      '</fieldset>'+
+      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">SERVIÇO PRESTADO</legend>'+
+        '<div style="margin: 5px;">'+
+        '<div class="col-xs-12"><p>'+ cliente.servicos[servicoPos].servicoExecutado +'</p></div>'+
+        '<div class="col-xs-12"><p>Preço: '+ cliente.servicos[servicoPos].preco +'</p></div>'+
+        '</div>'+
+      '</fieldset>'+
+      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">FORMA DE PAGAMENTO</legend>'+
+        '<div style="margin: 5px">';
+        
+ if(cliente.servicos[servicoPos].pagamento1=='debito') {
+    html += '<div class="col-xs-12">'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Dinheiro </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Crédito </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;" checked="checked"> Débito </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Depósito </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Outro </input>'+
+          '</div>';
+  }
+  else if(cliente.servicos[servicoPos].pagamento1=='dinheiro') {
+    html += '<div class="col-xs-12">'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;" checked="checked"> Dinheiro </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Crédito </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Débito </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Depósito </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Outro </input>'+
+          '</div>';
   }
   else if(cliente.servicos[servicoPos].pagamento1=='credito') {
-    html += '<p>'+ cliente.servicos[servicoPos].pagamento1 +' em '+ cliente.servicos[servicoPos].pagamento2 +' vezes'+'</p></fieldset></div></div></body>';
+    html += '<div class="col-xs-12">'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Dinheiro </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;" checked="checked"> Crédito </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Débito </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Depósito </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Outro </input>'+
+          '</div>'+
+          '<div class="col-xs-12">'+
+              '<p>Número de vezes: '+ cliente.servicos[servicoPos].pagamento2 +'</p>'+
+          '</div>';
   }
   else if(cliente.servicos[servicoPos].pagamento1=='deposito') {
-    html += '<p>'+ cliente.servicos[servicoPos].pagamento1 +' na conta '+ cliente.servicos[servicoPos].pagamento2 +'</p></fieldset></div></div></body>';
+    html += '<div class="col-xs-12">'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Dinheiro </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Crédito </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Débito </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;" checked="checked"> Depósito </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Outro </input>'+
+          '</div>'+
+          '<div class="col-xs-12">'+
+              '<p>Conta que foi depositado: '+ cliente.servicos[servicoPos].pagamento2 +'</p>'+
+          '</div>';
   }
   else if(cliente.servicos[servicoPos].pagamento1=='outro') {
-    html += '<p>'+ cliente.servicos[servicoPos].pagamento2 +'</p></fieldset></div></div></body>';
+    html += '<div class="col-xs-12">'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Dinheiro </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Crédito </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Débito </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;"> Depósito </input>'+
+              '<input disabled type="radio" style="margin-left: 15px; margin-bottom: 15px;" checked="checked"> Outro </input>'+
+          '</div>'+
+          '<div class="col-xs-12">'+
+              '<p>Método utilizado: '+ cliente.servicos[servicoPos].pagamento2 +'</p>'+
+          '</div>';
   }
-
+  html += '</div>'+
+      '</fieldset>'+
+      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">OBSERVAÇÃO</legend>'+
+        '<div style="margin: 5px">'+
+          '<div class="col-xs-12"><p>'+ cliente.servicos[servicoPos].observacoes +'</p></div>'
+        '</div>'+
+      "</fieldset>";
+      
   $("#the-body").append(html);
   window.print();
   $("#servico-print-box").remove();
@@ -352,33 +452,61 @@ $(".printOrcamento").click(function() {
   var html =
     '<div id="orcamento-print-box">'+
       '<img class="center top30 bottom30" src="../mainlogo.png" alt="Advance Air Service" width="291" height="71" />'+
-      '<p class="center top10 bottom0" style="font-size:11px; text-align:center;">Av. Frederico Ritter 1455 - Cachoeirinha RS</p>'+
-      '<p class="center top0 bottom30" style="font-size:11px; text-align:center;"> Telefone: 3471.4077</p>'+
-      '<fieldset class="col-xs-5" style="border: 3px black solid; margin-right:10px">'+
-        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO CLIENTE</legend>'+
+      // '<p class="center top10 bottom0" style="font-size:11px; text-align:center;">Av. Frederico Ritter 1455 - Cachoeirinha RS</p>'+
+      // '<p class="center top0 bottom30" style="font-size:11px; text-align:center;"> Telefone: 3471.4077</p>'+
+      '<fieldset class="col-xs-3" style="border: 3px black solid; margin-right:30px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DATA</legend>'+
         '<div style="margin: 5px">'+
-          '<label>Nome:</label><p>'+cliente.nomeDoCliente+'</p>'+
-          '<label>CPF ou CNPJ:</label><p>'+cpf+'</p>'+
-          '<label>Telefone:</label><p>'+tel+'</p>'+
-          '<label>Endereço:</label><p>'+cliente.enderecoDoCliente+'</p>'+
-          '<label>Placa do carro:</label><p>'+cliente.placaDoCarro+'</p>'+
-          '<label>Modelo:</label><p>'+cliente.modeloDoCarro+'</p>'+
-          '<label>Quilometragem:</label><p>'+cliente.quilometragemDoCarro+'</p>'+
-          '<label>Ano do carro:</label><p>'+cliente.anoDoCarro+'</p>'+
+          '<div class="col-xs-12" style="text-align: center; margin-bottom: 20px"><h4>'+ cliente.orcamentos[orcamentoPos].data +'</h4></div>'+
         '</div>'+
       '</fieldset>'+
-      '<fieldset class="col-xs-6" style="border: 3px black solid">'+
-        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO ORÇAMENTO</legend>'+
+      '<fieldset class="col-xs-5" style="border: 3px black solid; margin-right:30px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">EMPRESA</legend>'+
+        '<div style="text-align: center; margin: 5px">'+
+          '<div class="col-xs-12"><p>'+ 'Av. Flores da Cunha, 151 - Cachoeirinha RS' +'</p></div>'+
+          '<div class="col-xs-12"><p>'+ 'Telefone: 3471.4077' +'</p></div>'+
+        '</div>'+
+      '</fieldset>'+
+      '<fieldset class="col-xs-3" style="border: 3px black solid">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">ORÇAMENTO</legend>'+
+        '<div style="margin: 5px">'+
+          '<div class="col-xs-12" style="text-align: center; margin-bottom: 20px"><h4> ID: '+ numeroOrcamento +'</h4></div>'+
+        '</div>'+
+      '</fieldset>'+
+      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO CLIENTE</legend>'+
+        '<div style="margin: 5px">'+
+          '<div class="col-xs-6"><p>Nome: '+cliente.nomeDoCliente+'</p></div>'+
+          '<div class="col-xs-6"><p>Telefone: '+tel+'</p></div>'+
+          '<div class="col-xs-6"><p>CPF ou CNPJ: '+cpf+'</p></div>'+
+          '<div class="col-xs-6"><p>Endereço: '+cliente.enderecoDoCliente+'</p></div>'+
+        '</div>'+
+      '</fieldset>'+
+      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO CARRO</legend>'+
+        '<div style="margin: 5px">'+
+          '<div class="col-xs-6"><p>Modelo: '+cliente.modeloDoCarro+'</p></div>'+
+          '<div class="col-xs-6"><p>Ano do carro: '+cliente.anoDoCarro+'</p></div>'+
+          '<div class="col-xs-6"><p>Quilometragem: '+cliente.quilometragemDoCarro+'</p></div>'+
+          '<div class="col-xs-6"><p>Placa do carro: '+cliente.placaDoCarro+'</p></div>'+
+        '</div>'+
+      '</fieldset>'+
+      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">ORÇAMENTO</legend>'+
         '<div style="margin: 5px;">'+
-        '<h4>'+ cliente.orcamentos[orcamentoPos].data +'</h4>'+
-        '<label>Nome:</label>'+
-        '<p>'+ cliente.orcamentos[orcamentoPos].nome +'</p>'+
-        '<label>Número de identificação:</label>'+
-        '<p>'+ numeroOrcamento +'</p>'+
-        '<label>Observações:</label>'+
-        '<p>'+ cliente.orcamentos[orcamentoPos].observacoes +'</p>'+
-        '<label>Preço:</label>'+
-        '<p>'+ cliente.orcamentos[orcamentoPos].preco +'</p>'+
+        // '<h4>'+ cliente.orcamentos[orcamentoPos].data +'</h4>'+
+        '<div class="col-xs-12"><p>'+ cliente.orcamentos[orcamentoPos].nome +'</p></div>'+
+        // '<label>Número de identificação:</label>'+
+        // '<p>'+ numeroOrcamento +'</p>'+
+        // '<label>Observações:</label>'+
+        // '<p>'+ cliente.orcamentos[orcamentoPos].observacoes +'</p>'+
+        '<div class="col-xs-12"><p>Preço: '+ cliente.orcamentos[orcamentoPos].preco +'</p></div>'+
+        '</div>'+
+      '</fieldset>'+
+      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+        '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">OBSERVAÇÃO</legend>'+
+        '<div style="margin: 5px">'+
+          '<div class="col-xs-12"><p>'+ cliente.orcamentos[orcamentoPos].observacoes +'</p></div>'
         '</div>'+
       "</fieldset>";
 

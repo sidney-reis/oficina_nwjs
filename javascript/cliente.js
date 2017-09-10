@@ -101,34 +101,112 @@ if(typeof cliente.servicos !== 'undefined') {
       }
       var stringaoHTML =
         '<div class="servico-box">'+
-          '<h4>'+ cliente.servicos[i].data +'</h4>'+
+          '<p class="error" servicoNumber='+i+'></p>'+
+          '<h4 class="to-hide-on-edit-serv" servicoNumber='+i+'>'+ cliente.servicos[i].data +'</h4>'+
+          '<input class="data-input edit-serv-field" servicoNumber='+i+' hidden type="text" value="'+ cliente.servicos[i].data +'"><br  class="edit-serv-field" servicoNumber='+i+' hidden>'+
           '<label>Serviço executado:</label>'+
-          '<p>'+ cliente.servicos[i].servicoExecutado +'</p>'+
+          '<p class="to-hide-on-edit-serv" servicoNumber='+i+'>'+ cliente.servicos[i].servicoExecutado +'</p>'+
+          '<input class="servico-input edit-serv-field" servicoNumber='+i+' hidden type="text" value="'+ cliente.servicos[i].servicoExecutado +'"><br  class="edit-serv-field" servicoNumber='+i+' hidden>'+
           '<label>Número de identificação:</label>'+
-          '<p>'+ numeroServico +'</p>'+
+          '<p class="to-hide-on-edit-serv" servicoNumber='+i+'>'+ numeroServico +'</p>'+
+          '<input class="numero-servico-input edit-serv-field" servicoNumber='+i+' hidden type="text" value="'+ numeroServico +'"><br  class="edit-serv-field" servicoNumber='+i+' hidden>'+
           '<label>Observações para a oficina:</label>'+
-          '<p>'+ observacoesOficina +'</p>'+
+          '<p class="to-hide-on-edit-serv" servicoNumber='+i+'>'+ observacoesOficina +'</p>'+
+          '<input class="observacoes-oficina-input edit-serv-field" servicoNumber='+i+' hidden type="text" value="'+ observacoesOficina +'"><br  class="edit-serv-field" servicoNumber='+i+' hidden>'+
           '<label>Observações para o cliente:</label>'+
-          '<p>'+ cliente.servicos[i].observacoes +'</p>'+
+          '<p class="to-hide-on-edit-serv" servicoNumber='+i+'>'+ cliente.servicos[i].observacoes +'</p>'+
+          '<input class="observacoes-input edit-serv-field" servicoNumber='+i+' hidden type="text" value="'+ cliente.servicos[i].observacoes +'"><br  class="edit-serv-field" servicoNumber='+i+' hidden>'+
           '<label>Custo para a oficina:</label>'+
-          '<p>'+ cliente.servicos[i].custo +'</p>'+
+          '<p class="to-hide-on-edit-serv" servicoNumber='+i+'>'+ cliente.servicos[i].custo +'</p>'+
+          '<input class="custo-input edit-serv-field" servicoNumber='+i+' hidden type="text" value="'+ cliente.servicos[i].custo +'"><br  class="edit-serv-field" servicoNumber='+i+' hidden>'+
           '<label>Preço pago pelo cliente:</label>'+
-          '<p>'+ cliente.servicos[i].preco +'</p>'+
+          '<p class="to-hide-on-edit-serv" servicoNumber='+i+'>'+ cliente.servicos[i].preco +'</p>'+
+          '<input class="preco-input edit-serv-field" servicoNumber='+i+' hidden type="text" value="'+ cliente.servicos[i].preco +'"><br  class="edit-serv-field" servicoNumber='+i+' hidden>'+
           '<label>Forma de pagamento:</label>'
       ;
-      if(cliente.servicos[i].pagamento1=='dinheiro' || cliente.servicos[i].pagamento1=='debito') {
-        stringaoHTML += '<p>'+ cliente.servicos[i].pagamento1 +'</p>';
+      if(cliente.servicos[i].pagamento1=='debito') {
+        stringaoHTML += '<p class="to-hide-on-edit-serv" servicoNumber='+i+'>'+ cliente.servicos[i].pagamento1 +'</p>';
+        stringaoHTML += '<div class="col-xs-12 edit-serv-field" servicoNumber='+i+' hidden>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="dinheiro"> Dinheiro </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="credito"> Crédito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" checked value="debito"> Débito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="deposito"> Depósito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="outro"> Outro </input>'+
+                        '</div><br class="edit-serv-field">';
+        stringaoHTML += '<div class="edit-serv-field" servicoNumber='+i+' hidden>'+
+                          '<label class="col-xs-12 pagamento2-texto " servicoNumber='+i+'></label>'+
+                          '<div class="col-xs-12" style="margin-left: 15px; margin-bottom: 15px;"><input hidden class="col-xs-4 pagamento2-input" servicoNumber='+i+' value=""/></div>'+
+                        '</div>';
+      }
+      else if(cliente.servicos[i].pagamento1=='dinheiro') {
+        stringaoHTML += '<p class="to-hide-on-edit-serv" servicoNumber='+i+'>'+ cliente.servicos[i].pagamento1 +'</p>';
+        stringaoHTML += '<div class="col-xs-12 edit-serv-field" servicoNumber='+i+' hidden>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" checked value="dinheiro"> Dinheiro </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="credito"> Crédito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="debito"> Débito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="deposito"> Depósito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="outro"> Outro </input>'+
+                        '</div><br class="edit-serv-field">';
+        stringaoHTML += '<div class="edit-serv-field" servicoNumber='+i+' hidden>'+
+                          '<label class="col-xs-12 pagamento2-texto " servicoNumber='+i+'></label>'+
+                          '<div class="col-xs-12" style="margin-left: 15px; margin-bottom: 15px;"><input hidden class="col-xs-4 pagamento2-input" servicoNumber='+i+' value=""/></div>'+
+                        '</div>';
       }
       else if(cliente.servicos[i].pagamento1=='credito') {
-        stringaoHTML += '<p>'+ cliente.servicos[i].pagamento1 +' em '+ cliente.servicos[i].pagamento2 +' vezes'+'</p>';
+        stringaoHTML += '<p class="to-hide-on-edit-serv" servicoNumber='+i+'>'+ cliente.servicos[i].pagamento1 +' em '+ cliente.servicos[i].pagamento2 +' vezes'+'</p>';
+        stringaoHTML += '<div class="col-xs-12 edit-serv-field" servicoNumber='+i+' hidden>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="dinheiro"> Dinheiro </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" checked value="credito"> Crédito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="debito"> Débito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="deposito"> Depósito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="outro"> Outro </input>'+
+                        '</div><br class="edit-serv-field">';
+        stringaoHTML += '<div class="edit-serv-field" servicoNumber='+i+' hidden>'+
+                          '<label class="col-xs-12 pagamento2-texto "  servicoNumber='+i+'>Quantas vezes:</label>'+
+                          '<div class="col-xs-12" style="margin-left: 15px; margin-bottom: 15px;"><input class="col-xs-4 pagamento2-input" servicoNumber='+i+' value="'+ cliente.servicos[i].pagamento2 +'"/></div>'+
+                        '</div>';
       }
       else if(cliente.servicos[i].pagamento1=='deposito') {
-        stringaoHTML += '<p>'+ cliente.servicos[i].pagamento1 +' na conta '+ cliente.servicos[i].pagamento2 +'</p>';
+        stringaoHTML += '<p class="to-hide-on-edit-serv" servicoNumber='+i+'>'+ cliente.servicos[i].pagamento1 +' na conta '+ cliente.servicos[i].pagamento2 +'</p>';
+        stringaoHTML += '<div class="col-xs-12 edit-serv-field" servicoNumber='+i+' hidden>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="dinheiro"> Dinheiro </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="credito"> Crédito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="debito"> Débito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" checked value="deposito"> Depósito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="outro"> Outro </input>'+
+                        '</div><br class="edit-serv-field">';
+        stringaoHTML += '<div class="edit-serv-field" servicoNumber='+i+' hidden>'+
+                          '<label class="col-xs-12 pagamento2-texto "  servicoNumber='+i+'>Conta que foi depositado:</label>'+
+                          '<div class="col-xs-12" style="margin-left: 15px; margin-bottom: 15px;"><input class="col-xs-4 pagamento2-input" servicoNumber='+i+' value="'+ cliente.servicos[i].pagamento2 +'"/></div>'+
+                        '</div>';
       }
       else if(cliente.servicos[i].pagamento1=='outro') {
-        stringaoHTML += '<p>'+ cliente.servicos[i].pagamento2 +'</p>';
+        stringaoHTML += '<p class="to-hide-on-edit-serv" servicoNumber='+i+'>'+ cliente.servicos[i].pagamento2 +'</p>';
+        stringaoHTML += '<div class="col-xs-12 edit-serv-field" servicoNumber='+i+' hidden>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="dinheiro"> Dinheiro </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="credito"> Crédito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="debito"> Débito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="deposito"> Depósito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" checked value="outro"> Outro </input>'+
+                        '</div><br class="edit-serv-field">';
+        stringaoHTML += '<div class="edit-serv-field" servicoNumber='+i+' hidden>'+
+                          '<label class="col-xs-12 pagamento2-texto" servicoNumber='+i+'>Qual método utilizado:</label>'+
+                          '<div class="col-xs-12" style="margin-left: 15px; margin-bottom: 15px;"><input class="col-xs-4 pagamento2-input" servicoNumber='+i+' value="'+ cliente.servicos[i].pagamento2 +'"/></div>'+
+                        '</div>';
       }
-      stringaoHTML += '<button class="printServico" servicoNumber='+i+'>Imprimir serviço</button></div>'
+      else {
+        stringaoHTML += '<div class="col-xs-12 edit-serv-field" servicoNumber='+i+' hidden>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="dinheiro"> Dinheiro </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="credito"> Crédito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="debito"> Débito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="deposito"> Depósito </input>'+
+                            '<input name="forma-pagamento-'+i+'" class="forma-pagamento-input" servicoNumber='+i+' type="radio" style="margin-left: 15px; margin-bottom: 15px;" value="outro"> Outro </input>'+
+                        '</div><br class="edit-serv-field">';
+      }
+      stringaoHTML += '<button class="printServico to-hide-on-edit-serv" servicoNumber='+i+' servicoNumber='+i+'>Imprimir serviço</button>';
+      stringaoHTML += '<button class="editServico to-hide-on-edit-serv" servicoNumber='+i+' style="margin-left: 5px" servicoNumber='+i+'>Alterar serviço</button>';
+      stringaoHTML += '<button class="saveServico edit-serv-field" hidden servicoNumber='+i+'>Salvar</button>';
+      stringaoHTML += '<button class="cancelServico edit-serv-field" servicoNumber='+i+' hidden style="margin-left: 5px" servicoNumber='+i+'>Cancelar</button></div>';
       $("#lista-servicos").append(stringaoHTML);
     }
   }
@@ -139,6 +217,132 @@ if(typeof cliente.servicos !== 'undefined') {
 else {
   $("#servico-nenhum").show();
 }
+
+$(".cancelServico").click(function() {
+  var servicoPos = $(this).attr("servicoNumber");
+  $(".to-hide-on-edit-serv[servicoNumber="+servicoPos+"]").show();
+  $(".edit-serv-field[servicoNumber="+servicoPos+"]").hide();
+  $(".error[servicoNumber="+servicoPos+"]").hide();
+  location.reload();
+});
+
+var editando = false;
+
+$(".editServico").click(function() {
+  var servicoPos = $(this).attr("servicoNumber");
+  if(!editando) {
+    $(".to-hide-on-edit-serv[servicoNumber="+servicoPos+"]").hide();
+    $(".edit-serv-field[servicoNumber="+servicoPos+"]").show();
+    editando = true;
+  } else {
+    $(".error[servicoNumber="+servicoPos+"]").text("Você já está alterando outro serviço.");
+    $(".error[servicoNumber="+servicoPos+"]").show();
+    setTimeout(() => $(".error[servicoNumber="+servicoPos+"]").hide(), 5000)
+  }
+});
+
+$(".saveServico").click(function() {
+  var fs = require('fs');
+  var clientesJSON = JSON.parse(fs.readFileSync('./json/clientes.json', 'utf8'));
+  var servicoPos = $(this).attr("servicoNumber");
+
+  var existNumber = false;
+  clientesJSON.clientes.forEach((cliente, index) => {
+    for(orcamento in cliente.orcamentos) {
+      if(cliente.orcamentos[orcamento].numeroOrcamento == $(".numero-servico-input[servicoNumber="+servicoPos+"]").val()) {
+        existNumber = true;
+        break;
+      }
+    }
+    cliente.servicos.forEach( (servico, indexSer ) => {
+      if( !(localStorage.getItem("selectedClienteIndex") == index && servicoPos == indexSer) ) {
+        if(servico.numeroServico == $(".numero-servico-input[servicoNumber="+servicoPos+"]").val()) {
+          existNumber = true;
+          // break;
+        }
+      }
+    });
+
+    for(ordem in cliente.ordens) {
+      if(cliente.ordens[ordem].numeroOrdem == $(".numero-servico-input[servicoNumber="+servicoPos+"]").val()) {
+        existNumber = true;
+        break;
+      }
+    }
+  });
+
+  if(existNumber && $(".numero-servico-input[servicoNumber="+servicoPos+"]").val().length) {
+    $(".error[servicoNumber="+servicoPos+"]").text("Número de identificação informado já existe.");
+    $(".error[servicoNumber="+servicoPos+"]").show();
+  }
+
+  else if($(".servico-input[servicoNumber="+servicoPos+"]").val().trim() == '') {
+    $(".error[servicoNumber="+servicoPos+"]").text("Não foi possível adicionar serviço. O campo de serviço executado deve ser preenchido.");
+    $(".error[servicoNumber="+servicoPos+"]").show();
+  }
+
+  else if(isNaN(parseFloat($(".custo-input[servicoNumber="+servicoPos+"]").val())) || isNaN(parseFloat($(".preco-input[servicoNumber="+servicoPos+"]").val()))) {
+    $(".error[servicoNumber="+servicoPos+"]").text("Utilize apenas números e pontos nos campos de custo e preço. Pontos são utilizados para separar reais e centavos.");
+    $(".error[servicoNumber="+servicoPos+"]").show();
+  }
+
+  else if($(".custo-input[servicoNumber="+servicoPos+"]").val().includes(",") || $(".preco-input[servicoNumber="+servicoPos+"]").val().includes(",")) {
+    $(".error[servicoNumber="+servicoPos+"]").text("Não utilize vírgulas. Utilize pontos para separar reais e centavos.");
+    $(".error[servicoNumber="+servicoPos+"]").show();
+  }
+
+  else if((($(".custo-input[servicoNumber="+servicoPos+"]").val().match(/\./g) || []).length > 1) || (($(".preco-input[servicoNumber="+servicoPos+"]").val().match(/\./g) || []).length > 1)) {
+    $(".error[servicoNumber="+servicoPos+"]").text("Utilize apenas um ponto para separar reais e centavos.");
+    $(".error[servicoNumber="+servicoPos+"]").show();
+  }
+
+  else {
+    clientesJSON.clientes[localStorage.getItem("selectedClienteIndex")].servicos[servicoPos] = {
+      "servicoExecutado": $(".servico-input[servicoNumber="+servicoPos+"]").val(),
+      "numeroServico": $(".numero-servico-input[servicoNumber="+servicoPos+"]").val(),
+      "data": $(".data-input[servicoNumber="+servicoPos+"]").val(),
+      "observacoes": $(".observacoes-input[servicoNumber="+servicoPos+"]").val(),
+      "observacoesOficina": $(".observacoes-oficina-input[servicoNumber="+servicoPos+"]").val(),
+      "custo": $(".custo-input[servicoNumber="+servicoPos+"]").val(),
+      "preco": $(".preco-input[servicoNumber="+servicoPos+"]").val(),
+      "pagamento1": $(".forma-pagamento-input[servicoNumber="+servicoPos+"]:checked").val(),
+      "pagamento2": $(".pagamento2-input[servicoNumber="+servicoPos+"]").val()
+    };
+
+    fs.writeFileSync("./json/clientes.json", JSON.stringify(clientesJSON), function(err) {
+        if(err) {
+            return console.log(err);
+        }
+    });
+    $(".to-hide-on-edit-serv[servicoNumber="+servicoPos+"]").show();
+    $(".edit-serv-field[servicoNumber="+servicoPos+"]").hide();
+    location.reload();
+  }
+});
+
+$(".forma-pagamento-input").click(function() {
+  var servicoPos = $(this).attr("servicoNumber");
+  if(this.value == "dinheiro") {
+    $(".pagamento2-input[servicoNumber="+servicoPos+"]").hide();
+    $(".pagamento2-texto[servicoNumber="+servicoPos+"]").empty();
+  }
+  else if(this.value == "debito") {
+    $(".pagamento2-input[servicoNumber="+servicoPos+"]").hide();
+    $(".pagamento2-texto[servicoNumber="+servicoPos+"]").empty();
+  }
+  else if(this.value == "credito") {
+    $(".pagamento2-input[servicoNumber="+servicoPos+"]").show();
+    $(".pagamento2-texto[servicoNumber="+servicoPos+"]").text("Quantas vezes:");
+  }
+  else if(this.value == "deposito") {
+    $(".pagamento2-input[servicoNumber="+servicoPos+"]").show();
+    $(".pagamento2-texto[servicoNumber="+servicoPos+"]").text("Conta que foi depositado:");
+  }
+  else if(this.value == "outro") {
+    $(".pagamento2-input[servicoNumber="+servicoPos+"]").show();
+    $(".pagamento2-texto[servicoNumber="+servicoPos+"]").text("Qual método utilizado:");
+  }
+});
 
 $(".printServico").click(function() {
   $("#main-container").hide();
@@ -158,36 +362,6 @@ $(".printServico").click(function() {
   }
 
   var html =
-    // '<div id="servico-print-box">'+
-      // '<img class="center top30" src="../mainlogo.png" alt="Advance Air Service" width="291" height="71" />'+
-      // '<p class="center top10 bottom0" style="font-size:11px; text-align:center;">Av. Frederico Ritter 1455 - Cachoeirinha RS</p>'+
-      // '<p class="center top0 bottom30" style="font-size:11px; text-align:center;"> Telefone: 3471.4077</p>'+
-      // '<fieldset class="col-xs-5" style="border: 3px black solid; margin-right:10px">'+
-        // '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO CLIENTE</legend>'+
-        // '<div style="margin: 5px">'+
-          // '<label>Nome:</label><p>'+cliente.nomeDoCliente+'</p>'+
-          // '<label>CPF ou CNPJ:</label><p>'+cpf+'</p>'+
-          // '<label>Telefone:</label><p>'+tel+'</p>'+
-          // '<label>Endereço:</label><p>'+cliente.enderecoDoCliente+'</p>'+
-          // '<label>Placa do carro:</label><p>'+cliente.placaDoCarro+'</p>'+
-          // '<label>Modelo:</label><p>'+cliente.modeloDoCarro+'</p>'+
-          // '<label>Quilometragem:</label><p>'+cliente.quilometragemDoCarro+'</p>'+
-          // '<label>Ano do carro:</label><p>'+cliente.anoDoCarro+'</p>'+
-        // '</div>'+
-      // '</fieldset>'+
-      // '<fieldset class="col-xs-6" style="border: 3px black solid; margin-right:10px">'+
-        // '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO SERVIÇO</legend>'+
-        // '<div style="margin: 5px">'+
-          // '<h4>'+ cliente.servicos[servicoPos].data +'</h4>'+
-          // '<label>Serviço executado:</label>'+
-          // '<p>'+ cliente.servicos[servicoPos].servicoExecutado +'</p>'+
-          // '<label>Número de identificação:</label>'+
-          // '<p>'+ numeroServico +'</p>'+
-          // '<label>Observações:</label>'+
-          // '<p>'+ cliente.servicos[servicoPos].observacoes +'</p>'+
-          // '<label>Preço pago pelo cliente:</label>'+
-          // '<p>'+ cliente.servicos[servicoPos].preco +'</p>'+
-          // '<label>Forma de pagamento:</label>';
     '<div id="servico-print-box">'+
       '<img class="center top30 bottom30" src="../mainlogo.png" alt="Advance Air Service" width="291" height="71" />'+
       '<fieldset class="col-xs-3" style="border: 3px black solid; margin-right:30px">'+
@@ -436,6 +610,7 @@ $(".transSim").click(function() {
 
 $(".printOrcamento").click(function() {
   $("#main-container").hide();
+
   var orcamentoPos = $(this).attr("orcamentoNumber");
   var numeroOrcamento = '';
   var cpf = '';
@@ -511,8 +686,10 @@ $(".printOrcamento").click(function() {
       "</fieldset>";
 
   $("#the-body").append(html);
-  window.print();
-  $("#orcamento-print-box").remove();
-  $("#main-container").show();
+  setTimeout(() => {
+    window.print();
+      $("#orcamento-print-box").remove();
+      $("#main-container").show();
+  },250);
 });
 

@@ -364,26 +364,26 @@ $(".printServico").click(function() {
   var html =
     '<div id="servico-print-box">'+
       '<img class="center top30 bottom30" src="../mainlogo.png" alt="Advance Air Service" width="291" height="71" />'+
-      '<fieldset class="col-xs-3" style="border: 3px black solid; margin-right:30px">'+
+      '<fieldset class="col-xs-3" style="border: 1px black solid; margin-right:30px">'+
         '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DATA</legend>'+
         '<div style="margin: 5px">'+
           '<div class="col-xs-12" style="text-align: center; margin-bottom: 20px"><h4>'+ cliente.servicos[servicoPos].data +'</h4></div>'+
         '</div>'+
       '</fieldset>'+
-      '<fieldset class="col-xs-5" style="border: 3px black solid; margin-right:30px">'+
+      '<fieldset class="col-xs-5" style="border: 1px black solid; margin-right:30px">'+
         '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">EMPRESA</legend>'+
         '<div style="text-align: center; margin: 5px">'+
           '<div class="col-xs-12"><p>'+ 'Av. Flores da Cunha, 151 - Cachoeirinha RS' +'</p></div>'+
           '<div class="col-xs-12"><p>'+ 'Telefone: 3471.4077' +'</p></div>'+
         '</div>'+
       '</fieldset>'+
-      '<fieldset class="col-xs-3" style="border: 3px black solid">'+
+      '<fieldset class="col-xs-3" style="border: 1px black solid">'+
         '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">SERVIÇO</legend>'+
         '<div style="margin: 5px">'+
           '<div class="col-xs-12" style="text-align: center; margin-bottom: 20px"><h4> ID: '+ numeroServico +'</h4></div>'+
         '</div>'+
       '</fieldset>'+
-      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+      '<fieldset class="col-xs-12" style="border: 1px black solid; margin-top: 30px">'+
         '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO CLIENTE</legend>'+
         '<div style="margin: 5px">'+
           '<div class="col-xs-6"><p>Nome: '+cliente.nomeDoCliente+'</p></div>'+
@@ -392,7 +392,7 @@ $(".printServico").click(function() {
           '<div class="col-xs-6"><p>Endereço: '+cliente.enderecoDoCliente+'</p></div>'+
         '</div>'+
       '</fieldset>'+
-      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+      '<fieldset class="col-xs-12" style="border: 1px black solid; margin-top: 30px">'+
         '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO CARRO</legend>'+
         '<div style="margin: 5px">'+
           '<div class="col-xs-6"><p>Modelo: '+cliente.modeloDoCarro+'</p></div>'+
@@ -401,14 +401,14 @@ $(".printServico").click(function() {
           '<div class="col-xs-6"><p>Placa do carro: '+cliente.placaDoCarro+'</p></div>'+
         '</div>'+
       '</fieldset>'+
-      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+      '<fieldset class="col-xs-12" style="border: 1px black solid; margin-top: 30px">'+
         '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">SERVIÇO PRESTADO</legend>'+
         '<div style="margin: 5px;">'+
         '<div class="col-xs-12"><p>'+ cliente.servicos[servicoPos].servicoExecutado +'</p></div>'+
         '<div class="col-xs-12"><p>Preço: '+ cliente.servicos[servicoPos].preco +'</p></div>'+
         '</div>'+
       '</fieldset>'+
-      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+      '<fieldset class="col-xs-12" style="border: 1px black solid; margin-top: 30px">'+
         '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">FORMA DE PAGAMENTO</legend>'+
         '<div style="margin: 5px">';
         
@@ -468,7 +468,7 @@ $(".printServico").click(function() {
   }
   html += '</div>'+
       '</fieldset>'+
-      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+      '<fieldset class="col-xs-12" style="border: 1px black solid; margin-top: 30px">'+
         '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">OBSERVAÇÃO</legend>'+
         '<div style="margin: 5px">'+
           '<div class="col-xs-12"><p>'+ cliente.servicos[servicoPos].observacoes +'</p></div>'
@@ -476,10 +476,11 @@ $(".printServico").click(function() {
       "</fieldset>";
       
   $("#the-body").append(html);
-  window.print();
-  $("#servico-print-box").remove();
-  $("#main-container").show();
-
+  setTimeout(() => {
+    window.print();
+    $("#servico-print-box").remove();
+    $("#main-container").show();
+  },250);
 });
 
 // ordens:
@@ -629,26 +630,26 @@ $(".printOrcamento").click(function() {
       '<img class="center top30 bottom30" src="../mainlogo.png" alt="Advance Air Service" width="291" height="71" />'+
       // '<p class="center top10 bottom0" style="font-size:11px; text-align:center;">Av. Frederico Ritter 1455 - Cachoeirinha RS</p>'+
       // '<p class="center top0 bottom30" style="font-size:11px; text-align:center;"> Telefone: 3471.4077</p>'+
-      '<fieldset class="col-xs-3" style="border: 3px black solid; margin-right:30px">'+
+      '<fieldset class="col-xs-3" style="border: 1px black solid; margin-right:30px">'+
         '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DATA</legend>'+
         '<div style="margin: 5px">'+
           '<div class="col-xs-12" style="text-align: center; margin-bottom: 20px"><h4>'+ cliente.orcamentos[orcamentoPos].data +'</h4></div>'+
         '</div>'+
       '</fieldset>'+
-      '<fieldset class="col-xs-5" style="border: 3px black solid; margin-right:30px">'+
+      '<fieldset class="col-xs-5" style="border: 1px black solid; margin-right:30px">'+
         '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">EMPRESA</legend>'+
         '<div style="text-align: center; margin: 5px">'+
           '<div class="col-xs-12"><p>'+ 'Av. Flores da Cunha, 151 - Cachoeirinha RS' +'</p></div>'+
           '<div class="col-xs-12"><p>'+ 'Telefone: 3471.4077' +'</p></div>'+
         '</div>'+
       '</fieldset>'+
-      '<fieldset class="col-xs-3" style="border: 3px black solid">'+
+      '<fieldset class="col-xs-3" style="border: 1px black solid">'+
         '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">ORÇAMENTO</legend>'+
         '<div style="margin: 5px">'+
           '<div class="col-xs-12" style="text-align: center; margin-bottom: 20px"><h4> ID: '+ numeroOrcamento +'</h4></div>'+
         '</div>'+
       '</fieldset>'+
-      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+      '<fieldset class="col-xs-12" style="border: 1px black solid; margin-top: 30px">'+
         '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO CLIENTE</legend>'+
         '<div style="margin: 5px">'+
           '<div class="col-xs-6"><p>Nome: '+cliente.nomeDoCliente+'</p></div>'+
@@ -657,7 +658,7 @@ $(".printOrcamento").click(function() {
           '<div class="col-xs-6"><p>Endereço: '+cliente.enderecoDoCliente+'</p></div>'+
         '</div>'+
       '</fieldset>'+
-      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+      '<fieldset class="col-xs-12" style="border: 1px black solid; margin-top: 30px">'+
         '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">DADOS DO CARRO</legend>'+
         '<div style="margin: 5px">'+
           '<div class="col-xs-6"><p>Modelo: '+cliente.modeloDoCarro+'</p></div>'+
@@ -666,7 +667,7 @@ $(".printOrcamento").click(function() {
           '<div class="col-xs-6"><p>Placa do carro: '+cliente.placaDoCarro+'</p></div>'+
         '</div>'+
       '</fieldset>'+
-      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+      '<fieldset class="col-xs-12" style="border: 1px black solid; margin-top: 30px">'+
         '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">ORÇAMENTO</legend>'+
         '<div style="margin: 5px;">'+
         // '<h4>'+ cliente.orcamentos[orcamentoPos].data +'</h4>'+
@@ -678,7 +679,7 @@ $(".printOrcamento").click(function() {
         '<div class="col-xs-12"><p>Preço: '+ cliente.orcamentos[orcamentoPos].preco +'</p></div>'+
         '</div>'+
       '</fieldset>'+
-      '<fieldset class="col-xs-12" style="border: 3px black solid; margin-top: 30px">'+
+      '<fieldset class="col-xs-12" style="border: 1px black solid; margin-top: 30px">'+
         '<legend style="margin-left: 10px; padding: 0 5px; width: auto; border: 0; margin-bottom: 0; background-color: white !important; -webkit-print-color-adjust: exact">OBSERVAÇÃO</legend>'+
         '<div style="margin: 5px">'+
           '<div class="col-xs-12"><p>'+ cliente.orcamentos[orcamentoPos].observacoes +'</p></div>'
